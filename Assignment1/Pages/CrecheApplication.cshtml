@@ -1,0 +1,68 @@
+﻿@page
+@model Assignment1.Pages.CrecheApplicationModel
+@{
+    ViewData["Title"] = "CrecheApplication";
+}
+
+<h2>Creche Application</h2>
+
+@*form to get all info*@
+<form method="post">
+
+    @*ask for child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
+        starting date*@
+
+    <div>
+        <label asp-for=Child.FirstName></label>
+        <input asp-for=Child.FirstName>
+    </div>
+
+    <div>
+        <label asp-for=Child.LastName></label>
+        <input asp-for=Child.LastName>
+    </div>
+
+    <div>
+        <label asp-for=Child.PPSN></label>
+        <input asp-for=Child.PPSN>
+    </div>
+
+    <div>
+        <label asp-for=Child.DOB></label>
+        <input asp-for=Child.DOB>
+    </div>
+
+    <div>
+        <label asp-for=Child.Gender></label>
+        <input asp-for=Child.Gender>
+    </div>
+
+    <fieldset>
+
+        <legend>What days will your child be attending the creche?</legend>
+
+        @for (int i = 0; i < Model.Days.Length; i++)
+        {
+            <input asp-for="Days[i]" />
+            <label asp-for="Days[i]">@Model.DayList[i]</label>
+        }
+
+    </fieldset>
+
+    <div>
+        <label asp-for=Child.StartDate></label>
+        <input asp-for=Child.StartDate>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>
+
+<ul>
+    @for (int i = 0; i < Model.Days.Length; i++)
+    {
+        if (Model.Days[i])
+        {
+            <li>@Model.DayList[i]</li>
+        }
+    }
+</ul>
