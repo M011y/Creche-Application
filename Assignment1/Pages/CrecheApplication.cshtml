@@ -12,57 +12,53 @@
     @*ask for child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         starting date*@
 
+    <h3>Please fill in your childs information</h3>
+
     <div>
-        <label asp-for=Child.FirstName></label>
+        <label asp-for=Child.FirstName>First Name: </label>
         <input asp-for=Child.FirstName>
     </div>
 
     <div>
-        <label asp-for=Child.LastName></label>
+        <label asp-for=Child.LastName>Last Name: </label>
         <input asp-for=Child.LastName>
     </div>
 
     <div>
-        <label asp-for=Child.PPSN></label>
+        <label asp-for=Child.PPSN>PPSN: </label>
         <input asp-for=Child.PPSN>
     </div>
 
     <div>
-        <label asp-for=Child.DOB></label>
+        <label asp-for=Child.DOB>Date of Birth: </label>
         <input asp-for=Child.DOB>
     </div>
 
     <div>
-        <label asp-for=Child.Gender></label>
+        <label asp-for=Child.Gender>Gender: </label>
         <input asp-for=Child.Gender>
     </div>
 
-    <fieldset>
+    <div>Full or Part-Time:</div>
+    <div>
+        <input type="radio" name="Time" value="Full">Full-Time<br>
+        <input type="radio" name="Time" value="Part">Part-Time<br>
+    </div>
 
-        <legend>What days will your child be attending the creche?</legend>
-
-        @for (int i = 0; i < Model.Days.Length; i++)
-        {
-            <input asp-for="Days[i]" />
-            <label asp-for="Days[i]">@Model.DayList[i]</label>
-        }
-
-    </fieldset>
+    <div>Days attending:</div>
+    <div>
+        <input type="checkbox" name="Day1" value="Monday">Monday<br>
+        <input type="checkbox" name="Day2" value="Tuesday">Tuesday<br>
+        <input type="checkbox" name="Day3" value="Wednesday">Wednesday<br>
+        <input type="checkbox" name="Day4" value="Thursday">Thursday<br>
+        <input type="checkbox" name="Day5" value="Friday">Friday<br>
+        <input type="checkbox" name="Day6" value="Saturday">Saturday<br>
+    </div>
 
     <div>
-        <label asp-for=Child.StartDate></label>
-        <input asp-for=Child.StartDate>
+        <label asp-for=Child.StartDate>Start Date: </label>
+        <input type="date" asp-for=Child.StartDate>
     </div>
 
     <button type="submit">Submit</button>
 </form>
-
-<ul>
-    @for (int i = 0; i < Model.Days.Length; i++)
-    {
-        if (Model.Days[i])
-        {
-            <li>@Model.DayList[i]</li>
-        }
-    }
-</ul>

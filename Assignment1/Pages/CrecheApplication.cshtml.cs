@@ -10,12 +10,6 @@ namespace Assignment1.Pages
 {
     public class CrecheApplicationModel : PageModel
     {
-        public string[] DayList { get; set; }
-        = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
-
-        [Required]
-        [BindProperty]
-        public bool[] Days { get; set; } = new bool[7];
 
         public void OnGet()
         {
