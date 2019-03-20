@@ -12,6 +12,9 @@ namespace Assignment.Models
     {
         //list properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         //starting date
+        //[Key]
+        //[Display(Name = "Application Number")]
+        //public int ApplicationID = RandomGen.Next();
 
         [Required(ErrorMessage = "Please enter your child's First Name")]
         [Display(Name = "First Name")]
@@ -21,11 +24,13 @@ namespace Assignment.Models
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
+        [Key]
         [Required(ErrorMessage = "Please enter your child's PPS Number")]
         public string PPSN { get; set; }
 
         [Required]
         [Display(Name = "Date of Birth")]
+        //[Age(ErrorMessage = "Child must be between the ages of 3 and 5 when starting")]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
@@ -37,7 +42,8 @@ namespace Assignment.Models
         [Required]
         public string Hours { get; set; }
 
-        [Required(ErrorMessage = "Please enter the date your child will be starting")]
+        [Required]
+        [FutureDate(ErrorMessage = "You must choose a date in the future")]
         [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }

@@ -26,8 +26,8 @@ namespace Assignment.Pages
             { new SelectListItem ("FullTime", "Full-Time" ),
               new SelectListItem ("PartTime", "Part-Time" )};
 
-        [BindProperty]
-        public Parent Parent { get; set; }
+        //[BindProperty]
+        //public Parent Parent { get; set; }
 
         public List<SelectListItem> RelationshipList { get; set; } =
         new List<SelectListItem>
@@ -48,7 +48,7 @@ namespace Assignment.Pages
             {
                 _db.Children.Add(Child);
                 await _db.SaveChangesAsync();
-                return RedirectToPage("ListApplications");
+                return RedirectToPage("ThankYou");
             }
 
             else
