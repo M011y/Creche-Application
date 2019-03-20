@@ -36,9 +36,9 @@ namespace Assignment.Models
             };
         }
 
-        //[Key]
-        //[Display(Name = "Application Number")]
-        //public int ApplicationID = RandomGen.Next();
+        [Key]
+        [Display(Name = "Application Number")]
+        public int ID { get; set; }
 
         [Required(ErrorMessage = "Please enter your child's First Name")]
         [Display(Name = "First Name")]
@@ -48,7 +48,6 @@ namespace Assignment.Models
         [Display(Name = "Last Name")]
         public string CLastName { get; set; }
 
-        [Key]
         [Required(ErrorMessage = "Please enter your child's PPS Number")]
         [RegularExpression(@"(\d{7})([A-Z]{1,2})", ErrorMessage = "Please Enter a Valid PPSN")]
         public string PPSN { get; set; }

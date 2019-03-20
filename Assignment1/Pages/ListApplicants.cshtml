@@ -20,10 +20,10 @@
         @foreach (var applicant in Model.Applicants)
         {
             //list out each of the properties
-        <td>APPLICATION NUMBER</td>
+        <td>@applicant.ID</td>
         <td>@applicant.CFirstName @applicant.CLastName</td>
         <td>@applicant.PFirstName @applicant.PLastName</td>
-        <td>@applicant.Days.TrueForAll(t => t.Ticked)</td>
+        <td>@applicant.Days.Count(d => d.Ticked)</td>
         <td><button>View</button></td>
          }
     </tbody>

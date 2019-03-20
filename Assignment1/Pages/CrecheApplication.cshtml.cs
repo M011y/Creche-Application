@@ -30,12 +30,12 @@ namespace Assignment.Pages
 
         public CrecheApplicationModel(CrecheContext db)
         {
-            _db = db;
             Applicant = new Applicant();
+            _db = db;
         }
 
         public async Task<IActionResult> OnPostAsync()
-        {
+        { 
             if (ModelState.IsValid)
             {
                 _db.Applicants.Add(Applicant);
@@ -46,7 +46,7 @@ namespace Assignment.Pages
             else
             {
                 return Page();
-            }
+            } 
         }
     }
 }

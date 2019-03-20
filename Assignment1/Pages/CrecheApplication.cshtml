@@ -56,7 +56,7 @@
 
         @foreach (var day in Model.Applicant.Days)
         {
-            <input asp-for="@day.Ticked" />
+            <input type="checkbox" name="@day.Ticked" value="@day.Ticked"/>
             <label asp-for="@day.DayName">@day.DayName</label>
         }
 
