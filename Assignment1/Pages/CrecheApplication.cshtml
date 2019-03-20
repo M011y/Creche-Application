@@ -20,33 +20,33 @@
     </div>
 
     <div>
-        <label asp-for=Child.LastName>Last Name: </label>
+        <label asp-for=Child.LastName></label>
         <input asp-for=Child.LastName>
     </div>
 
     <div>
-        <label asp-for=Child.PPSN>PPSN: </label>
+        <label asp-for=Child.PPSN></label>
         <input asp-for=Child.PPSN>
     </div>
 
     <div>
-        <label asp-for=Child.DOB>Date of Birth: </label>
+        <label asp-for=Child.DOB></label>
         <input asp-for=Child.DOB>
     </div>
 
     <div>
-        <label asp-for=Child.Gender>Gender: </label>
+        <label asp-for=Child.Gender></label>
         <input asp-for=Child.Gender>
     </div>
 
-    <div>Full or Part-Time: </div>
+    <div>Full or Part-Time </div>
     <div>
         <select asp-for="Child.Hours" asp-items=Model.HoursList></select>
     </div>
 
     <fieldset>
 
-        <legend>Days attending:</legend>
+        <legend>Days attending</legend>
 
         @for (int i = 0; i < Model.Days.Length; i++)
         {
@@ -64,44 +64,42 @@
     @*ask for parent properties First Name, Surname, relationship to child, address, Irish mobile num,
         //second contact num, other contact num, e-mail address, 2nd e-mail address*@
 
-    @*<h3>Please fill in your own details</h3>
+    <h3>Please fill in your own details</h3>
 
-        <div>
-            <label asp-for=Parent.FirstName>First Name: </label>
-            <input asp-for=Parent.FirstName>
-        </div>
+    <div>
+        <label asp-for=Parent.FirstName></label>
+        <input asp-for=Parent.FirstName>
+    </div>
 
-        <div>
-            <label asp-for=Parent.LastName>Last Name: </label>
-            <input asp-for=Parent.LastName>
-        </div>
+    <div>
+        <label asp-for=Parent.LastName></label>
+        <input asp-for=Parent.LastName>
+    </div>
 
-        <div>Relationship to child:</div>
-        <div>
-            <input type="radio" name="Relationship" value="Father">Father<br>
-            <input type="radio" name="Relationship" value="Mother">Mother<br>
-            <input type="radio" name="Relationship" value="Other">Other<br>
-        </div>
+    <div>Relationship to child </div>
+    <div>
+        <select asp-for="Parent.Relationship" asp-items=Model.RelationshipList></select>
+    </div>
 
-        <div>
-            <label asp-for=Parent.Address>Address: </label>
-            <input asp-for=Parent.Address>
-        </div>
+    <div>
+        <label asp-for=Parent.Address></label>
+        <input asp-for=Parent.Address>
+    </div>
 
-        <div>
-            <label asp-for=Parent.Mobile>Mobile Phone Number: </label>
-            <input asp-for=Parent.Mobile>
-        </div>
+    <div>
+        <label asp-for=Parent.Mobile></label>
+        <input asp-for=Parent.Mobile>
+    </div>
 
-        <div>
-            <label asp-for=Parent.Phone1>House Phone Number: </label>
-            <input asp-for=Parent.Phone1>
-        </div>
+    <div>
+        <label asp-for=Parent.Phone1></label>
+        <input asp-for=Parent.Phone1>
+    </div>
 
-        <div>
-            <label asp-for=Parent.Phone2>Other Phone Number: </label>
-            <input asp-for=Parent.Phone2>
-        </div>*@
+    <div>
+        <label asp-for=Parent.Phone2></label>
+        <input asp-for=Parent.Phone2>
+    </div>
 
     <button type="submit">Submit</button>
 </form>

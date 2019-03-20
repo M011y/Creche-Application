@@ -16,25 +16,30 @@ namespace Assignment.Models
         [Required(ErrorMessage = "Please enter a First Name"), StringLength(100)]
         [Display(Name = "First Name")]
         [RegularExpression(@"[\w|-]{2,}", ErrorMessage = "First Name must be atleast 2 characters")]
-        public string FirstName { get; set; } = "";
+        public string FirstName { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
         [Required]
         public int PPSN { get; set; }
 
         [Required]
+        [Display(Name = "Date of Birth")]
         public DateTime DOB { get; set; }
 
         [Required]
         public string Gender { get; set; }
 
+        //[Required]
+        //public string Days { get; set; }
+
         [Required]
         public string Hours { get; set; }
 
         [Required]
-        [DataType(DataType.Date)]
+        [Display(Name = "Start Date")]
         public DateTime StartDate { get; set; }
     }
 }
