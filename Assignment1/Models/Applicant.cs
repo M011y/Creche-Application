@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -6,10 +7,35 @@ using System.Threading.Tasks;
 
 namespace Assignment.Models
 {
+
+    public class Day {
+        public Day(string dayName, bool ticked)
+        {
+            DayName = dayName;
+            Ticked = ticked;
+        }
+
+        public int Id { get; set; }
+        public string DayName { get; set; }
+        public bool Ticked { get; set; }
+    }
+
     public class Applicant
     {
-        //list properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
+        //list child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         //starting date
+
+        public Applicant()
+        {
+            Days = new List<Day> {
+                new Day("Monday", false ),
+                new Day( "Tuesday", false ),
+                new Day("Wednesday", false ),
+                new Day("Thursday", false ),
+                new Day("Friday", false ),
+            };
+        }
+
         //[Key]
         //[Display(Name = "Application Number")]
         //public int ApplicationID = RandomGen.Next();
@@ -36,8 +62,10 @@ namespace Assignment.Models
         [Required(ErrorMessage = "Please enter your child's gender")]
         public string Gender { get; set; }
 
-        //[Required]
-        //public string Days { get; set; }
+        [Required]
+        [BindProperty]
+        public List<Day> Days { get; set; }
+
         [Required]
         public string Hours { get; set; }
 
@@ -47,7 +75,7 @@ namespace Assignment.Models
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
 
-        //list properties First Name, Surname, relationship to child, address, Irish mobile num,
+        //list parent properties First Name, Surname, relationship to child, address, Irish mobile num,
         //second contact num, other contact num, e-mail address, 2nd e-mail address
 
         [Required(ErrorMessage = "Please enter your First Name")]
@@ -65,12 +93,12 @@ namespace Assignment.Models
         [Required(ErrorMessage = "Please enter your Address")]
         public string Address { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your mobile phone number")]
         [Display(Name = "Mobile Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public int Mobile { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your house phone number")]
         [Display(Name = "House Phone Number")]
         [DataType(DataType.PhoneNumber)]
         public int Phone1 { get; set; }

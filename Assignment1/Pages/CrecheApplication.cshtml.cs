@@ -15,19 +15,10 @@ namespace Assignment.Pages
         [BindProperty]
         public Applicant Applicant { get; set; }
 
-        public string[] DayList { get; set; }
-        = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
-
-        [BindProperty]
-        public bool[] Days { get; set; } = new bool[5];
-
         public List<SelectListItem> HoursList { get; set; } =
         new List<SelectListItem>
             { new SelectListItem ("FullTime", "Full-Time" ),
               new SelectListItem ("PartTime", "Part-Time" )};
-
-        //[BindProperty]
-        //public Parent Parent { get; set; }
 
         public List<SelectListItem> RelationshipList { get; set; } =
         new List<SelectListItem>
@@ -40,6 +31,7 @@ namespace Assignment.Pages
         public CrecheApplicationModel(CrecheContext db)
         {
             _db = db;
+            Applicant = new Applicant();
         }
 
         public async Task<IActionResult> OnPostAsync()

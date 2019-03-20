@@ -12,6 +12,8 @@
             <th>Application Number</th>
             <th>Child's Name</th>
             <th>Parent's Name</th>
+            <th>Days Ticked</th>
+            <th>View Full Application</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +23,9 @@
         <td>APPLICATION NUMBER</td>
         <td>@applicant.CFirstName @applicant.CLastName</td>
         <td>@applicant.PFirstName @applicant.PLastName</td>
-    }
-        </tbody>
+        <td>@applicant.Days.TrueForAll(t => t.Ticked)</td>
+        <td><button>View</button></td>
+         }
+    </tbody>
     </table>
 
