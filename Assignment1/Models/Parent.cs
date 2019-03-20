@@ -11,11 +11,11 @@ namespace Assignment.Models
         //list properties First Name, Surname, relationship to child, address, Irish mobile num,
         //second contact num, other contact num, e-mail address, 2nd e-mail address
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your First Name")]
         [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your Last Name")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
@@ -23,7 +23,7 @@ namespace Assignment.Models
         [Display(Name = "Relationship to Child")]
         public string Relationship { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your Address")]
         public string Address { get; set; }
 
         [Required]
@@ -40,7 +40,7 @@ namespace Assignment.Models
         [DataType(DataType.PhoneNumber)]
         public int Phone2 { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your Email Address")]
         [Display(Name = "E-mail Address")]
         [DataType(DataType.EmailAddress)]
         public string Email1 { get; set; }

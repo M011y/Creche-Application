@@ -13,33 +13,33 @@ namespace Assignment.Models
         //list properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         //starting date
 
-        [Required(ErrorMessage = "Please enter a First Name"), StringLength(100)]
+        [Required(ErrorMessage = "Please enter your child's First Name")]
         [Display(Name = "First Name")]
-        [RegularExpression(@"[\w|-]{2,}", ErrorMessage = "First Name must be atleast 2 characters")]
         public string FirstName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your child's Last Name")]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        public int PPSN { get; set; }
+        [Required(ErrorMessage = "Please enter your child's PPS Number")]
+        public string PPSN { get; set; }
 
         [Required]
         [Display(Name = "Date of Birth")]
+        [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter your child's gender")]
         public string Gender { get; set; }
 
         //[Required]
         //public string Days { get; set; }
-
         [Required]
         public string Hours { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Please enter the date your child will be starting")]
         [Display(Name = "Start Date")]
+        [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
     }
 }

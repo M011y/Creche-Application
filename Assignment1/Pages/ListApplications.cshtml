@@ -1,0 +1,25 @@
+﻿@page
+@model Assignment.Pages.Children.ListApplicationsModel
+@{
+    ViewData["Title"] = "ListApplications";
+}
+
+<h2>ListApplications</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Application Number</th>
+            <th>Child's Name</th>
+            <th>Parent's Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var child in Model.Children)
+        {
+            //list out each of the properties
+        <tr>@child.FirstName @child.LastName</tr>
+        }
+        </tbody>
+    </table>
+

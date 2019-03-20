@@ -42,19 +42,19 @@ namespace Assignment.Pages
             _db = db;
         }
 
-        //public async Task<IActionResult> OnPostAsync()
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _db.Children.Add(Child);
-        //        await _db.SaveChangesAsync();
-        //        return RedirectToPage("ListChildren");
-        //    }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (ModelState.IsValid)
+            {
+                _db.Children.Add(Child);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("ListApplications");
+            }
 
-        //    else
-        //    {
-        //        return Page();
-        //    }
-        //}
+            else
+            {
+                return Page();
+            }
+        }
     }
 }
