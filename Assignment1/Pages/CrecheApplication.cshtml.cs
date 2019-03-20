@@ -1,19 +1,39 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
-namespace Assignment1.Pages
+namespace Assignment.Pages
 {
     public class CrecheApplicationModel : PageModel
     {
+        [BindProperty]
+        public Child Child { get; set; }
 
-        public void OnGet()
+        private readonly CrecheContext _db;
+
+        public CrecheApplicationModel(CrecheContext db)
         {
-
+            _db = db;
         }
+
+        //public async Task<IActionResult> OnPostAsync()
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        _db.Children.Add(Child);
+        //        await _db.SaveChangesAsync();
+        //        return RedirectToPage("ListChildren");
+        //    }
+
+        //    else
+        //    {
+        //        return Page();
+        //    }
+        //}
     }
 }

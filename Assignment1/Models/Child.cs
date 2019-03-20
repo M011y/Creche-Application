@@ -6,15 +6,17 @@ using System.Text.RegularExpressions;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Assignment1.Models
+namespace Assignment.Models
 {
     public class Child
     {
         //list properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         //starting date
 
-        [Required]
-        public string FirstName { get; set; }
+        [Required(ErrorMessage = "Please enter a First Name"), StringLength(100)]
+        [Display(Name = "First Name")]
+        [RegularExpression(@"[\w|-]{2,}", ErrorMessage = "First Name must be atleast 2 characters")]
+        public string FirstName { get; set; } = "";
 
         [Required]
         public string LastName { get; set; }
