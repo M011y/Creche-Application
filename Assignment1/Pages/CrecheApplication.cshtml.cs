@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 
 namespace Assignment.Pages
@@ -13,6 +14,17 @@ namespace Assignment.Pages
     {
         [BindProperty]
         public Child Child { get; set; }
+
+        public string[] DayList { get; set; }
+        = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
+
+        [BindProperty]
+        public bool[] Days { get; set; } = new bool[5];
+
+        public List<SelectListItem> HoursList { get; set; } =
+        new List<SelectListItem>
+            { new SelectListItem ("FullTime", "Full-Time" ),
+              new SelectListItem ("PartTime", "Part-Time" )};
 
         private readonly CrecheContext _db;
 

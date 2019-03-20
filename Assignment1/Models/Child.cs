@@ -31,7 +31,7 @@ namespace Assignment.Models
         public string Gender { get; set; }
 
         [Required]
-        public int Hours { get; set; }
+        public string Hours { get; set; }
 
         [Required]
         [DataType(DataType.Date)]

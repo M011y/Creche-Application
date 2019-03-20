@@ -39,21 +39,22 @@
         <input asp-for=Child.Gender>
     </div>
 
-    <div>Full or Part-Time:</div>
+    <div>Full or Part-Time: </div>
     <div>
-        <input type="radio" name="Time" value="Full">Full-Time<br>
-        <input type="radio" name="Time" value="Part">Part-Time<br>
+        <select asp-for="Child.Hours" asp-items=Model.HoursList></select>
     </div>
 
-    <div>Days attending:</div>
-    <div>
-        <input type="checkbox" name="Day1" value="Monday">Monday<br>
-        <input type="checkbox" name="Day2" value="Tuesday">Tuesday<br>
-        <input type="checkbox" name="Day3" value="Wednesday">Wednesday<br>
-        <input type="checkbox" name="Day4" value="Thursday">Thursday<br>
-        <input type="checkbox" name="Day5" value="Friday">Friday<br>
-        <input type="checkbox" name="Day6" value="Saturday">Saturday<br>
-    </div>
+    <fieldset>
+
+        <legend>Days attending:</legend>
+
+        @for (int i = 0; i < Model.Days.Length; i++)
+        {
+            <input asp-for="Days[i]" />
+            <label asp-for="Days[i]">@Model.DayList[i]</label>
+        }
+
+    </fieldset>
 
     <div>
         <label asp-for=Child.StartDate></label>
