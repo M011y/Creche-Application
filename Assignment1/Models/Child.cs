@@ -26,6 +26,7 @@ namespace Assignment.Models
 
         [Key]
         [Required(ErrorMessage = "Please enter your child's PPS Number")]
+        [RegularExpression(@"(\d{7})([A-Z]{1,2})", ErrorMessage = "Please Enter a Valid PPSN")]
         public string PPSN { get; set; }
 
         [Required]

@@ -1,0 +1,27 @@
+﻿@page
+@model Assignment.Pages.Applicants.ListApplicantsModel
+@{
+    ViewData["Title"] = "ListApplicants";
+}
+
+<h2>List Applications</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Application Number</th>
+            <th>Child's Name</th>
+            <th>Parent's Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var applicant in Model.Applicants)
+        {
+            //list out each of the properties
+        <td>APPLICATION NUMBER</td>
+        <td>@applicant.CFirstName @applicant.CLastName</td>
+        <td>@applicant.PFirstName @applicant.PLastName</td>
+    }
+        </tbody>
+    </table>
+

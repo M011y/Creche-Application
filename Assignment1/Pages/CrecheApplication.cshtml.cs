@@ -13,7 +13,7 @@ namespace Assignment.Pages
     public class CrecheApplicationModel : PageModel
     {
         [BindProperty]
-        public Child Child { get; set; }
+        public Applicant Applicant { get; set; }
 
         public string[] DayList { get; set; }
         = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday" };
@@ -46,7 +46,7 @@ namespace Assignment.Pages
         {
             if (ModelState.IsValid)
             {
-                _db.Children.Add(Child);
+                _db.Applicants.Add(Applicant);
                 await _db.SaveChangesAsync();
                 return RedirectToPage("ThankYou");
             }

@@ -7,22 +7,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 
-namespace Assignment.Pages.Children
+namespace Assignment.Pages.Applicants
 {
-    public class ListApplicationsModel : PageModel
+    public class ListApplicantsModel : PageModel
     {
         private readonly CrecheContext _db;
 
-        public ListApplicationsModel(CrecheContext db)
+        public ListApplicantsModel(CrecheContext db)
         {
             _db = db;
         }
 
-        public IList<Child> Children { get; private set; }
+        public IList<Applicant> Applicants { get; private set; }
 
         public async Task OnGetAsync()
         {
-            Children = await _db.Children.AsNoTracking().ToListAsync();
+            Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
         }
     }
 }

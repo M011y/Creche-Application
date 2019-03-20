@@ -11,7 +11,7 @@ namespace Assignment.Models
         public CrecheContext(DbContextOptions<CrecheContext> options) : base(options)
         { }
 
-        public DbSet<Child> Children { get; set; }
+        public DbSet<Applicant> Applicants { get; set; }
 
         //public DbSet<Parent> Parents { get; set; }
     }

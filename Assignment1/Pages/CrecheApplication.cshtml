@@ -15,40 +15,40 @@
     <h3>Please fill in your childs details</h3>
 
     <div>
-        <label asp-for=Child.FirstName></label>
-        <input asp-for=Child.FirstName>
-        <span asp-validation-for=Child.FirstName></span>
+        <label asp-for=Applicant.CFirstName></label>
+        <input asp-for=Applicant.CFirstName>
+        <span asp-validation-for=Applicant.CFirstName></span>
     </div>
 
     <div>
-        <label asp-for=Child.LastName></label>
-        <input asp-for=Child.LastName>
-        <span asp-validation-for=Child.LastName></span>
+        <label asp-for=Applicant.CLastName></label>
+        <input asp-for=Applicant.CLastName>
+        <span asp-validation-for=Applicant.CLastName></span>
     </div>
 
     <div>
-        <label asp-for=Child.PPSN></label>
-        <input asp-for=Child.PPSN>
-        <span asp-validation-for=Child.PPSN></span>
+        <label asp-for=Applicant.PPSN></label>
+        <input asp-for=Applicant.PPSN>
+        <span asp-validation-for=Applicant.PPSN></span>
     </div>
 
     <div>
-        <label asp-for=Child.DOB></label>
-        <input asp-for=Child.DOB>
-        <span asp-validation-for=Child.DOB></span>
+        <label asp-for=Applicant.DOB></label>
+        <input asp-for=Applicant.DOB>
+        <span asp-validation-for=Applicant.DOB></span>
     </div>
 
     <div>
-        <label asp-for=Child.Gender></label>
-        <input asp-for=Child.Gender>
-        <span asp-validation-for=Child.Gender></span>
+        <label asp-for=Applicant.Gender></label>
+        <input asp-for=Applicant.Gender>
+        <span asp-validation-for=Applicant.Gender></span>
     </div>
 
     <div>Full or Part-Time </div>
     <div>
-        <select asp-for="Child.Hours" asp-items=Model.HoursList></select>
+        <select asp-for="Applicant.Hours" asp-items=Model.HoursList></select>
     </div>
-    <span asp-validation-for=Child.Hours></span>
+    <span asp-validation-for=Applicant.Hours></span>
 
     <fieldset>
 
@@ -64,67 +64,67 @@
     @*<span asp-validation-for=Days></span>*@
 
     <div>
-        <label asp-for=Child.StartDate></label>
-        <input asp-for=Child.StartDate>
-        <span asp-validation-for=Child.StartDate></span>
+        <label asp-for=Applicant.StartDate></label>
+        <input asp-for=Applicant.StartDate>
+        <span asp-validation-for=Applicant.StartDate></span>
     </div>
 
     @*ask for parent properties First Name, Surname, relationship to child, address, Irish mobile num,
         //second contact num, other contact num, e-mail address, 2nd e-mail address*@
 
-    @*<h3>Please fill in your own details</h3>
+    <h3>Please fill in your own details</h3>
 
     <div>
-        <label asp-for=Parent.FirstName></label>
-        <input asp-for=Parent.FirstName>
-        <span asp-validation-for=Parent.FirstName></span>
+        <label asp-for=Applicant.PFirstName></label>
+        <input asp-for=Applicant.PFirstName>
+        <span asp-validation-for=Applicant.PFirstName></span>
     </div>
 
     <div>
-        <label asp-for=Parent.LastName></label>
-        <input asp-for=Parent.LastName>
-        <span asp-validation-for=Parent.LastName></span>
+        <label asp-for=Applicant.PLastName></label>
+        <input asp-for=Applicant.PLastName>
+        <span asp-validation-for=Applicant.PLastName></span>
     </div>
 
     <div>Relationship to child </div>
     <div>
-        <select asp-for="Parent.Relationship" asp-items=Model.RelationshipList></select>
-        <span asp-validation-for=Parent.Relationship></span>
+        <select asp-for="Applicant.Relationship" asp-items=Model.RelationshipList></select>
+        <span asp-validation-for=Applicant.Relationship></span>
     </div>
 
     <div>
-        <label asp-for=Parent.Address></label>
-        <input asp-for=Parent.Address>
-        <span asp-validation-for=Parent.Address></span>
+        <label asp-for=Applicant.Address></label>
+        <input asp-for=Applicant.Address>
+        <span asp-validation-for=Applicant.Address></span>
     </div>
 
     <div>
-        <label asp-for=Parent.Mobile></label>
-        <input asp-for=Parent.Mobile>
-        <span asp-validation-for=Parent.Mobile></span>
+        <label asp-for=Applicant.Mobile></label>
+        <input asp-for=Applicant.Mobile>
+        <span asp-validation-for=Applicant.Mobile></span>
     </div>
 
     <div>
-        <label asp-for=Parent.Phone1></label>
-        <input asp-for=Parent.Phone1>
-        <span asp-validation-for=Parent.Phone1></span>
+        <label asp-for=Applicant.Phone1></label>
+        <input asp-for=Applicant.Phone1>
+        <span asp-validation-for=Applicant.Phone1></span>
     </div>
 
     <div>
-        <label asp-for=Parent.Phone2></label>
-        <input asp-for=Parent.Phone2>
+        <label asp-for=Applicant.Phone2></label>
+        <input asp-for=Applicant.Phone2>
     </div>
 
     <div>
-        <label asp-for=Parent.Email1></label>
-        <input asp-for=Parent.Email1>
-        <span asp-validation-for=Parent.Email1></span>
+        <label asp-for=Applicant.Email1></label>
+        <input asp-for=Applicant.Email1>
+        <span asp-validation-for=Applicant.Email1></span>
     </div>
 
     <div>
-        <label asp-for=Parent.Email2></label>
-        <input asp-for=Parent.Email2>
-    </div>*@
+        <label asp-for=Applicant.Email2></label>
+        <input asp-for=Applicant.Email2>
+    </div>
 
     <button type="submit">Submit</button>
 </form>
