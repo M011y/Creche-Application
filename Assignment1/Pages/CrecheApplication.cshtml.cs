@@ -15,17 +15,6 @@ namespace Assignment.Pages
         [BindProperty]
         public Applicant Applicant { get; set; }
 
-        public List<SelectListItem> HoursList { get; set; } =
-        new List<SelectListItem>
-            { new SelectListItem ("FullTime", "Full-Time" ),
-              new SelectListItem ("PartTime", "Part-Time" )};
-
-        public List<SelectListItem> RelationshipList { get; set; } =
-        new List<SelectListItem>
-            { new SelectListItem ("Father", "Father" ),
-              new SelectListItem ("Mother", "Mother" ),
-              new SelectListItem ("Other", "Other")};
-
         private readonly CrecheContext _db;
 
         public CrecheApplicationModel(CrecheContext db)

@@ -12,7 +12,5 @@ namespace Assignment.Models
         { }
 
         public DbSet<Applicant> Applicants { get; set; }
-
-        //public DbSet<Parent> Parents { get; set; }
     }
 }

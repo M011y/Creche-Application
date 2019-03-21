@@ -12,7 +12,7 @@
             <th>Application Number</th>
             <th>Child's Name</th>
             <th>Parent's Name</th>
-            <th>Days Ticked</th>
+            @*<th>Days Ticked</th>*@
             <th>View Full Application</th>
         </tr>
     </thead>
@@ -23,8 +23,8 @@
         <td>@applicant.ID</td>
         <td>@applicant.CFirstName @applicant.CLastName</td>
         <td>@applicant.PFirstName @applicant.PLastName</td>
-        <td>@applicant.Days.Count(d => d.Ticked)</td>
-        <td><button>View</button></td>
+        @*<td>@applicant.Days.Count(d => d.Ticked)</td>*@
+        <td><input type="button" value="View" onclick="" /></td>
          }
     </tbody>
     </table>

@@ -44,24 +44,32 @@
         <span asp-validation-for=Applicant.Gender></span>
     </div>
 
-    <div>Full or Part-Time </div>
     <div>
-        <select asp-for="Applicant.Hours" asp-items=Model.HoursList></select>
+        <span>Full or Part-Time </span>
+        <label for="Full-Time">
+            <input value="Full-Time" id="Full-Time" type="Radio" asp-for="Applicant.Hours" />
+            Full-Time
+        </label>
+        <label for="Part-Time">
+            <input value="Part-Time" id="Part-Time" type="Radio" asp-for="Applicant.Hours" />
+            Part-Time
+        </label>
+        <span asp-validation-for=Applicant.Hours></span>
     </div>
-    <span asp-validation-for=Applicant.Hours></span>
 
     <div>
-
-        <span>Days attending</span>
-
-        @foreach (var day in Model.Applicant.Days)
-        {
-            <input type="checkbox" name="@day.Ticked" value="@day.Ticked"/>
-            <label asp-for="@day.DayName">@day.DayName</label>
-        }
-
+        <span>Days attending </span>
+        <label asp-for=Applicant.Monday></label>
+        <input asp-for=Applicant.Monday>
+        <label asp-for=Applicant.Tuesday></label>
+        <input asp-for=Applicant.Tuesday>
+        <label asp-for=Applicant.Wednesday></label>
+        <input asp-for=Applicant.Wednesday>
+        <label asp-for=Applicant.Thursday></label>
+        <input asp-for=Applicant.Thursday>
+        <label asp-for=Applicant.Friday></label>
+        <input asp-for=Applicant.Friday>
     </div>
-    @*<span asp-validation-for=Days></span>*@
 
     <div>
         <label asp-for=Applicant.StartDate></label>
@@ -86,9 +94,20 @@
         <span asp-validation-for=Applicant.PLastName></span>
     </div>
 
-    <div>Relationship to child </div>
     <div>
-        <select asp-for="Applicant.Relationship" asp-items=Model.RelationshipList></select>
+        <span>Relationship to Child </span>
+        <label for="Father">
+            <input value="Father" id="Father" type="Radio" asp-for="Applicant.Relationship" />
+            Father
+        </label>
+        <label for="Mother">
+            <input value="Mother" id="Mother" type="Radio" asp-for="Applicant.Relationship" />
+            Mother
+        </label>
+        <label for="Other">
+            <input value="Other" id="Other" type="Radio" asp-for="Applicant.Relationship" />
+            Other
+        </label>
         <span asp-validation-for=Applicant.Relationship></span>
     </div>
 

@@ -8,33 +8,10 @@ using System.Threading.Tasks;
 namespace Assignment.Models
 {
 
-    public class Day {
-        public Day(string dayName, bool ticked)
-        {
-            DayName = dayName;
-            Ticked = ticked;
-        }
-
-        public int Id { get; set; }
-        public string DayName { get; set; }
-        public bool Ticked { get; set; }
-    }
-
     public class Applicant
     {
         //list child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         //starting date
-
-        public Applicant()
-        {
-            Days = new List<Day> {
-                new Day("Monday", false ),
-                new Day( "Tuesday", false ),
-                new Day("Wednesday", false ),
-                new Day("Thursday", false ),
-                new Day("Friday", false ),
-            };
-        }
 
         [Key]
         [Display(Name = "Application Number")]
@@ -62,11 +39,17 @@ namespace Assignment.Models
         public string Gender { get; set; }
 
         [Required]
-        [BindProperty]
-        public List<Day> Days { get; set; }
-
-        [Required]
         public string Hours { get; set; }
+
+        public bool Monday { get; set; }
+
+        public bool Tuesday { get; set; }
+
+        public bool Wednesday { get; set; }
+
+        public bool Thursday { get; set; }
+
+        public bool Friday { get; set; }
 
         [Required]
         [FutureDate(ErrorMessage = "You must choose a date in the future")]
