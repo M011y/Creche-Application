@@ -24,5 +24,10 @@ namespace Assignment.Pages.Applicants
         {
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
         }
+
+        public async Task<IActionResult> RedirectToPage()
+        {
+            return RedirectToPage("ViewApplicant");
+        }
     }
 }

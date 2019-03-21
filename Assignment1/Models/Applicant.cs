@@ -78,16 +78,19 @@ namespace Assignment.Models
         [Required(ErrorMessage = "Please enter your mobile phone number")]
         [Display(Name = "Mobile Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        public int Mobile { get; set; }
+        [StringLength(13, MinimumLength = 10, ErrorMessage = "Mobile number must be between 10 and 13 digits")]
+        public string Mobile { get; set; }
 
         [Required(ErrorMessage = "Please enter your house phone number")]
         [Display(Name = "House Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        public int Phone1 { get; set; }
+        [StringLength(13, MinimumLength = 10, ErrorMessage = "House number must be between 10 and 13 digits")]
+        public string Phone1 { get; set; }
 
         [Display(Name = "Other Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        public int Phone2 { get; set; }
+        [StringLength(13, MinimumLength = 10, ErrorMessage = "Phone number must be between 10 and 13 digits")]
+        public string Phone2 { get; set; }
 
         [Required(ErrorMessage = "Please enter your Email Address")]
         [Display(Name = "E-mail Address")]
