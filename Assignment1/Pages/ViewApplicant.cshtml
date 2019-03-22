@@ -6,47 +6,50 @@
 
 <head>
     <title>View Applicant</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Application Number</th>
-            <th>Child's Name</th>
-            <th>Child's PPSN</th>
-            <th>Child's Date of Birth</th>
-            <th>Child's Gender</th>
-            <th>Full or Part-Time</th>
-            @*<th>Days Attending</th>*@
-            <th>Start Date</th>
-            <th>Parent/Guardian's Name</th>
-            <th>Relationship to Child</th>
-            <th>Address</th>
-            <th>Mobile Phone Number</th>
-            <th>House Phone Number</th>
-            <th>Other Phone Number</th>
-            <th>Email Address</th>
-            <th>Alternative Email Address</th>
-        </tr>
-    </thead>
-    <tbody>
-    <td>@Model.applicant.ID</td>
-    <td>@Model.applicant.CFirstName @Model.applicant.CLastName</td>
-    <td>@Model.applicant.PPSN</td>
-    <td>@Model.applicant.DOB</td>
-    <td>@Model.applicant.Gender</td>
-    <td>@Model.applicant.Hours</td>
-    @*<td>@Model.applicant.</td>*@
-    <td>@Model.applicant.StartDate</td>
-    <td>@Model.applicant.PFirstName @Model.applicant.PLastName</td>
-    <td>@Model.applicant.Relationship</td>
-    <td>@Model.applicant.Address</td>
-    <td>@Model.applicant.Mobile</td>
-    <td>@Model.applicant.Phone1</td>
-    <td>@Model.applicant.Phone2</td>
-    <td>@Model.applicant.Email1</td>
-    <td>@Model.applicant.Email2</td>
-    }
-    </tbody>
-</table>
+<div class="container">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Application Number</th>
+                <th>Child's Name</th>
+                <th>Child's PPSN</th>
+                <th>Child's Date of Birth</th>
+                <th>Child's Gender</th>
+                <th>Full or Part-Time</th>
+                @*<th>Days Attending</th>*@
+                <th>Start Date</th>
+                <th>Parent/Guardian's Name</th>
+                <th>Relationship to Child</th>
+                <th>Address</th>
+                <th>Mobile Phone Number</th>
+                <th>House Phone Number</th>
+                <th>Other Phone Number</th>
+                <th>Email Address</th>
+                <th>Alternative Email Address</th>
+            </tr>
+        </thead>
+        <tbody>
+        <td>@Model.applicant.ID</td>
+        <td>@Model.applicant.CFirstName @Model.applicant.CLastName</td>
+        <td>@Model.applicant.PPSN</td>
+        <td>@Model.applicant.DOB</td>
+        <td>@Model.applicant.Gender</td>
+        <td>@Model.applicant.Hours</td>
+        @*<td>@Model.applicant.</td>*@
+        <td>@Model.applicant.StartDate</td>
+        <td>@Model.applicant.PFirstName @Model.applicant.PLastName</td>
+        <td>@Model.applicant.Relationship</td>
+        <td>@Model.applicant.Address</td>
+        <td>@Model.applicant.Mobile</td>
+        <td>@Model.applicant.Phone1</td>
+        <td>@Model.applicant.Phone2</td>
+        <td>@Model.applicant.Email1</td>
+        <td>@Model.applicant.Email2</td>
+        </tbody>
+    </table>
+</div>
 

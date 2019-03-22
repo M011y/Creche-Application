@@ -7,10 +7,12 @@
 
 <head>
     <title>List Applications</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
-<form method="post">
-    <table class="table">
+<form method="post" class="container">
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>Application Number</th>
@@ -22,10 +24,12 @@
         <tbody>
             @foreach (var applicant in Model.Applicants)
             {
-            <td>@applicant.ID</td>
-            <td>@applicant.CFirstName @applicant.CLastName</td>
-            <td>@applicant.PFirstName @applicant.PLastName</td>
-            <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID">View</a> </td>
+            <tr>
+                <td>@applicant.ID</td>
+                <td>@applicant.CFirstName @applicant.CLastName</td>
+                <td>@applicant.PFirstName @applicant.PLastName</td>
+                <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID">View</a> </td>
+            </tr>
         }
             </tbody>
         </table>
