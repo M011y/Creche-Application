@@ -8,23 +8,24 @@ namespace Assignment.Models
 {
     public class AgeAttribute : ValidationAttribute
     {
-        //public override bool IsValid(object value)
-        //{
-            //start date - DOB must be between 3 and 5
+        protected override ValidationResult IsValid(object AgeAttribute, ValidationContext validationContext)
+        {
+            Applicant applicant = (Applicant)validationContext.ObjectInstance;
+            TimeSpan span = applicant.StartDate.Subtract(applicant.DOB);
 
-            //var age = GetAge((DateTime)value);
+            if (span.Days < 1825 && span.Days > 1095)
+            {
+                return ValidationResult.Success;
+            }
+            else
+            {
+                return new ValidationResult(GetErrorMessage());
+            }
+        }
 
-            //int GetAge(DateTime bornDate)
-            //{
-            //    DateTime today = DateTime.Today;
-            //    age = today.Year - bornDate.Year;
-            //    if (bornDate > today.AddYears(-age))
-            //        age--;
-
-            //    return age;
-            //}
-
-            //return value != null && age > 2 && age < 6;
-        //}
+        private string GetErrorMessage()
+        {
+            return $"Child must be between the ages of 3 and 5 when they start";
+        }
     }
 }

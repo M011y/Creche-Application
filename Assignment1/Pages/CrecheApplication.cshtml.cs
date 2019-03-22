@@ -25,7 +25,7 @@ namespace Assignment.Pages
 
         public async Task<IActionResult> OnPostAsync()
         { 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && CheckIfADayTicked(Applicant))
             {
                 _db.Applicants.Add(Applicant);
                 await _db.SaveChangesAsync();
@@ -36,6 +36,20 @@ namespace Assignment.Pages
             {
                 return Page();
             } 
+        }
+
+        public bool CheckIfADayTicked(Applicant applicant)
+        {
+            if (applicant.Monday || applicant.Tuesday || applicant.Wednesday
+                 || applicant.Thursday || applicant.Friday)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }

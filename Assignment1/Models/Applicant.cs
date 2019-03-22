@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 
 namespace Assignment.Models
 {
-
     public class Applicant
     {
         //list child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
@@ -31,7 +30,7 @@ namespace Assignment.Models
 
         [Required]
         [Display(Name = "Date of Birth")]
-        //[Age(ErrorMessage = "Child must be between the ages of 3 and 5 when starting")]
+        [AgeAttribute(ErrorMessage = "child must be between the ages of 3 and 5 when starting")]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 

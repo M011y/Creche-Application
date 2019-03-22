@@ -1,8 +1,5 @@
-﻿body {
-}
-
-.validation-errors 
-{
+﻿
+.field-validation-error {
     color: deeppink;
     font-style: italic;
 }
