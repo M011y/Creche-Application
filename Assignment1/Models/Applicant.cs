@@ -77,27 +77,29 @@ namespace Assignment.Models
         [Required(ErrorMessage = "Please enter your mobile phone number")]
         [Display(Name = "Mobile Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [StringLength(13, MinimumLength = 10, ErrorMessage = "Mobile number must be between 10 and 13 digits")]
+        [RegularExpression(@"([0]{1}[8]{1}[3|5|6|7|9]{1}[0-9]{7})", ErrorMessage = "Please Enter a Valid Irish mobile Phone Number")]
         public string Mobile { get; set; }
 
         [Required(ErrorMessage = "Please enter your house phone number")]
         [Display(Name = "House Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [StringLength(13, MinimumLength = 10, ErrorMessage = "House number must be between 10 and 13 digits")]
+        [RegularExpression(@"(^[+]{1}[0-9]{12}$)|(^[+]{1}[0-9]{11}$)|(^[0]{2}[0-9]{12}$)|(^[0]{2}[0-9]{11}$)|(^[0]{1}[0-9]{9}$)", ErrorMessage = "Please Enter a Valid Phone Number")]
         public string Phone1 { get; set; }
 
         [Display(Name = "Other Phone Number")]
         [DataType(DataType.PhoneNumber)]
-        [StringLength(13, MinimumLength = 10, ErrorMessage = "Phone number must be between 10 and 13 digits")]
+        [RegularExpression(@"(^[+]{1}[0-9]{12}$)|(^[+]{1}[0-9]{11}$)|(^[0]{2}[0-9]{12}$)|(^[0]{2}[0-9]{11}$)|(^[0]{1}[0-9]{9}$)", ErrorMessage = "Phone Number Not Valid")]
         public string Phone2 { get; set; }
 
         [Required(ErrorMessage = "Please enter your Email Address")]
         [Display(Name = "E-mail Address")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Please Enter a Valid Email Address")]
         public string Email1 { get; set; }
 
         [Display(Name = "Alternative E-mail Address")]
         [DataType(DataType.EmailAddress)]
+        [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Email Address Not Valid")]
         public string Email2 { get; set; }
     }
 }
