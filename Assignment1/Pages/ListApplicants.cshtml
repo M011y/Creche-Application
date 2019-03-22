@@ -18,11 +18,10 @@
     <tbody>
         @foreach (var applicant in Model.Applicants)
         {
-            //list out each of the properties
         <td>@applicant.ID</td>
         <td>@applicant.CFirstName @applicant.CLastName</td>
         <td>@applicant.PFirstName @applicant.PLastName</td>
-        <td><a href="ViewApplicant">View</a></td>
+        <td><a href="ViewApplicant/@applicant.ID">View</a></td>
         }
         </tbody>
     </table>
