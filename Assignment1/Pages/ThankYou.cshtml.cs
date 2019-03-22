@@ -28,17 +28,36 @@ namespace Assignment.Pages
         {
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
 
-            foreach (var applicant in Applicants) {
+            foreach (var applicant in Applicants)
+            {
+                var numOfDays = 0;
+                if (applicant.Monday) { numOfDays++; }
+                if (applicant.Tuesday) { numOfDays++; }
+                if (applicant.Wednesday) { numOfDays++; }
+                if (applicant.Thursday) { numOfDays++; }
+                if (applicant.Friday) { numOfDays++; }
+
                 if (applicant.Hours is "Full-Time")
                 {
-                    Message = "€157.50";
+                    decimal cost = numOfDays * 35;
+                    if(numOfDays > 3)
+                    {
+                        cost = cost * (decimal)0.9;
+                    }
+                    Message = $"{cost:C}";
                 }
                 else
                 {
-                    Message = "€100";
-                } }
+                    decimal cost = numOfDays * 20;
+                    if (numOfDays > 3)
+                    {
+                        cost = cost * (decimal)0.9;
+                    }
+                    Message = $"{cost:C}";
+                }
+            }
         }
 
-        
+
     }
 }
