@@ -18,11 +18,18 @@ namespace Assignment.Pages
             _db = db;
         }
 
-        public Applicant applicant{ get; set; }
+        [BindProperty]
+        public Applicant applicant { get; set; }
 
-        public void OnGet(int ID)
+        public IActionResult OnGet(int id)
         {
-            applicant =  _db.Applicants.Find(ID);
+            applicant = _db.Applicants.Find(id);
+
+            if (applicant == null)
+            {
+                return NotFound();
+            }
+            return Page();
         }
     }
 }

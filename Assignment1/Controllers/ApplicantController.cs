@@ -9,14 +9,9 @@ namespace Assignment.Controllers
 {
     public class ApplicantController : Controller
     {
-        //// GET: Applicant
-        //public ActionResult Index()
-        //{
-        //    return View();
-        //}
 
-        // GET: Applicant/Details/5
-        public ActionResult Details(int id)
+        // GET: Applicant/Edit/5
+        public ActionResult Edit(int id)
         {
             return View();
         }
