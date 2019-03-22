@@ -3,3 +3,10 @@
     color: deeppink;
     font-style: italic;
 }
+
+/*font properties for span font*/
+span {
+    font-weight: bold;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
