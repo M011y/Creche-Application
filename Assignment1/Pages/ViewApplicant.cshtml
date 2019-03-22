@@ -17,7 +17,7 @@
             <th>Child's Date of Birth</th>
             <th>Child's Gender</th>
             <th>Full or Part-Time</th>
-            <th>Days Attending</th>
+            @*<th>Days Attending</th>*@
             <th>Start Date</th>
             <th>Parent/Guardian's Name</th>
             <th>Relationship to Child</th>
@@ -31,21 +31,21 @@
     </thead>
     <tbody>
     <td>@Model.applicant.ID</td>
-    <td>Child's Name</td>
-    <td>Child's PPSN</td>
-    <td>Child's Date of Birth</td>
-    <td>Child's Gender</td>
-    <td>Full or Part-Time</td>
-    <td>Days Attending</td>
-    <td>Start Date</td>
-    <td>Parent/Guardian's Name</td>
-    <td>Relationship to Child</td>
-    <td>Address</td>
-    <td>Mobile Phone Number</td>
-    <td>House Phone Number</td>
-    <td>Other Phone Number</td>
-    <td>Email Address</td>
-    <td>Alternative Email Address</td>
+    <td>@Model.applicant.CFirstName @Model.applicant.CLastName</td>
+    <td>@Model.applicant.PPSN</td>
+    <td>@Model.applicant.DOB</td>
+    <td>@Model.applicant.Gender</td>
+    <td>@Model.applicant.Hours</td>
+    @*<td>@Model.applicant.</td>*@
+    <td>@Model.applicant.StartDate</td>
+    <td>@Model.applicant.PFirstName @Model.applicant.PLastName</td>
+    <td>@Model.applicant.Relationship</td>
+    <td>@Model.applicant.Address</td>
+    <td>@Model.applicant.Mobile</td>
+    <td>@Model.applicant.Phone1</td>
+    <td>@Model.applicant.Phone2</td>
+    <td>@Model.applicant.Email1</td>
+    <td>@Model.applicant.Email2</td>
     }
     </tbody>
 </table>
