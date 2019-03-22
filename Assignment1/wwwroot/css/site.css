@@ -1,4 +1,4 @@
-﻿
+﻿/*Changes writing for validation errors to pink italics*/
 .field-validation-error {
     color: deeppink;
     font-style: italic;

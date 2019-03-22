@@ -1,38 +1,49 @@
-﻿<!DOCTYPE html>
+﻿@*layout sheet for entire application*@
+
+<!DOCTYPE html>
 <html>
 <head>
+    @*character encoding*@
     <meta charset="utf-8" />
+    @*controls pages dimensions and scaling*@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Assignment</title>
+    <title>@ViewData["Title"] Molly's Creche</title>
 
-
+    @*referencing bootstrap css and my css page*@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
     <link rel="stylesheet" href="~/css/site.css" />
-
-
 </head>
+
 <body>
+
+    @*dropdown menu*@
     <div class="dropdown">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Menu
-            <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+            <li><a href="Index">Home</a></li>
             <li><a href="CrecheApplication">Creche Application Form</a></li>
             <li><a href="ListApplicants">View Creche Applications</a></li>
         </ul>
     </div>
 
+    @*footer*@
     <div class="container body-content">
         @RenderBody()
         <hr />
+        <footer>
+            <p>&copy; 2019 Molly's Creche</p>
+        </footer>
     </div>
 
+    @*referencing libraries*@
     <script src="~/lib/jquery/dist/jquery.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
-    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+        <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
     @RenderSection("Scripts", required: false)
 </body>
+
 </html>

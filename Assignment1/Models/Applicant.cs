@@ -5,13 +5,17 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
+//applicant class includes child and parent details
 namespace Assignment.Models
 {
     public class Applicant
     {
         //list child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         //starting date
+        //regular expression used to validate PPSN, phone numbers and emails.
 
+        //application number generated for each applicant, starting at 1.
+        //used as key.
         [Key]
         [Display(Name = "Application Number")]
         public int ID { get; set; }
@@ -28,9 +32,10 @@ namespace Assignment.Models
         [RegularExpression(@"(\d{7})([A-Z]{1,2})", ErrorMessage = "Please Enter a Valid PPSN")]
         public string PPSN { get; set; }
 
+        //age attribute referenced to validate age
         [Required]
         [Display(Name = "Date of Birth")]
-        [AgeAttribute(ErrorMessage = "child must be between the ages of 3 and 5 when starting")]
+        [Age(ErrorMessage = "child must be between the ages of 3 and 5 when starting")]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
@@ -50,6 +55,7 @@ namespace Assignment.Models
 
         public bool Friday { get; set; }
 
+        //futuredate attribute referenced to ensure date is in the future
         [Required]
         [FutureDate(ErrorMessage = "You must choose a date in the future")]
         [Display(Name = "Start Date")]

@@ -6,10 +6,9 @@
 
 <head>
     <title>View Applicant</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
+@*table with full details of an applicant*@
 <div class="container">
     <table class="table table-bordered">
         <thead>
@@ -20,7 +19,6 @@
                 <th>Child's Date of Birth</th>
                 <th>Child's Gender</th>
                 <th>Full or Part-Time</th>
-                @*<th>Days Attending</th>*@
                 <th>Start Date</th>
                 <th>Parent/Guardian's Name</th>
                 <th>Relationship to Child</th>
@@ -39,7 +37,6 @@
         <td>@Model.applicant.DOB</td>
         <td>@Model.applicant.Gender</td>
         <td>@Model.applicant.Hours</td>
-        @*<td>@Model.applicant.</td>*@
         <td>@Model.applicant.StartDate</td>
         <td>@Model.applicant.PFirstName @Model.applicant.PLastName</td>
         <td>@Model.applicant.Relationship</td>

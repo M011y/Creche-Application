@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
+//database to store the applicants
 namespace Assignment.Models
 {
     public class CrecheContext : DbContext

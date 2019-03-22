@@ -12,17 +12,21 @@ namespace Assignment.Pages
 {
     public class CrecheApplicationModel : PageModel
     {
+        //creates applicant object
         [BindProperty]
         public Applicant Applicant { get; set; }
 
+        //brings in database
         private readonly CrecheContext _db;
 
+        //adds applicant to database
         public CrecheApplicationModel(CrecheContext db)
         {
             Applicant = new Applicant();
             _db = db;
         }
 
+        //if all validation is passed, including atleast one day checked, redirect to thank-you page, otherwise return this page
         public async Task<IActionResult> OnPostAsync()
         { 
             if (ModelState.IsValid && CheckIfADayTicked(Applicant))
@@ -38,6 +42,7 @@ namespace Assignment.Pages
             } 
         }
 
+        //method to check if atleast one day is chosen
         public bool CheckIfADayTicked(Applicant applicant)
         {
             if (applicant.Monday || applicant.Tuesday || applicant.Wednesday

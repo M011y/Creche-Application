@@ -11,6 +11,7 @@ namespace Assignment.Pages.Applicants
 {
     public class ListApplicantsModel : PageModel
     {
+        //brings in database
         private readonly CrecheContext _db;
 
         public ListApplicantsModel(CrecheContext db)
@@ -18,8 +19,10 @@ namespace Assignment.Pages.Applicants
             _db = db;
         }
 
+        //brings in applicants
         public IList<Applicant> Applicants { get; private set; }
 
+        //extracts applicants as list
         public async Task OnGetAsync()
         {
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();

@@ -11,8 +11,7 @@ namespace Assignment.Pages
 {
     public class ThankYouModel : PageModel
     {
-        //Calculations: €20 part time p/d, €35 full time p/d
-        //Discount 10% if 4 or more days
+        //brings in database
         private readonly CrecheContext _db;
 
         public ThankYouModel(CrecheContext db)
@@ -20,14 +19,19 @@ namespace Assignment.Pages
             _db = db;
         }
 
+        //brings in applicants
         public IList<Applicant> Applicants { get; private set; }
 
+        //message default at max cost - gets overwritten
         public string Message { get; set; } = "€157.50";
 
+        //Calculations: €20 part time p/d, €35 full time p/d
+        //Discount 10% if 4 or more days
         public async Task OnGetAsync()
         {
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
 
+            //checks how many days ticked
             foreach (var applicant in Applicants)
             {
                 var numOfDays = 0;
@@ -37,6 +41,7 @@ namespace Assignment.Pages
                 if (applicant.Thursday) { numOfDays++; }
                 if (applicant.Friday) { numOfDays++; }
 
+                //calculations for full-time
                 if (applicant.Hours is "Full-Time")
                 {
                     decimal cost = numOfDays * 35;
@@ -46,6 +51,7 @@ namespace Assignment.Pages
                     }
                     Message = $"{cost:C}";
                 }
+                //calculations for part-time
                 else
                 {
                     decimal cost = numOfDays * 20;

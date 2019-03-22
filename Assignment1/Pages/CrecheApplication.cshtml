@@ -7,6 +7,7 @@
 
 <h2>Creche Application</h2>
 
+@*form for parent's/guardians to apply, with validation controls*@
 <form method="post">
 
     @*ask for child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
@@ -44,6 +45,7 @@
         <span asp-validation-for=Applicant.Gender></span>
     </div>
 
+    @*radio buttons for hours*@
     <div class="form-check">
         <span>Full or Part-Time </span>
         <label for="Full-Time">
@@ -57,6 +59,7 @@
         <span asp-validation-for=Applicant.Hours></span>
     </div>
 
+    @*checkbox for each day*@
     <div class="form-check">
         <span>Days attending </span>
         <label asp-for=Applicant.Monday></label>
@@ -94,6 +97,7 @@
         <span asp-validation-for=Applicant.PLastName></span>
     </div>
 
+    @*radio buttons for relationship*@
     <div class="form-check">
         <span>Relationship to Child </span>
         <label for="Father">

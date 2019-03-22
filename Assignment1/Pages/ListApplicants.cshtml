@@ -6,11 +6,10 @@
 }
 
 <head>
-    <title>List Applications</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Applications</title>
 </head>
 
+@*table with basic details of all applicants*@
 <form method="post" class="container">
     <table class="table table-striped">
         <thead>
@@ -28,6 +27,8 @@
                 <td>@applicant.ID</td>
                 <td>@applicant.CFirstName @applicant.CLastName</td>
                 <td>@applicant.PFirstName @applicant.PLastName</td>
+
+                @*button to redirect to singular applicant's full details using ID*@
                 <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID">View</a> </td>
             </tr>
         }
