@@ -39,7 +39,7 @@ namespace Assignment.Models
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
-        [Required(ErrorMessage = "Please enter your child's gender")]
+        [Required]
         public string Gender { get; set; }
 
         [Required]
