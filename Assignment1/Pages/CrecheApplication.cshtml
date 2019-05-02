@@ -84,7 +84,7 @@
     </div>
 
     @*checkbox for each day*@
-    <div class="form-group">
+    <fieldset class="form-group">
         <span class="col-sm-2 control-label">Days attending </span>
         <div class="col-sm-5">
             <input asp-for=Applicant.Monday>
@@ -98,7 +98,7 @@
             <input asp-for=Applicant.Friday>
             <label asp-for=Applicant.Friday></label>
         </div>
-    </div>
+    </fieldset>
 
     <div class="form-group">
         <label asp-for=Applicant.StartDate class="col-sm-2 control-label"></label>

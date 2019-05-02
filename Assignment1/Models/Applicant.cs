@@ -32,10 +32,8 @@ namespace Assignment.Models
         [RegularExpression(@"(\d{7})([A-Z]{1,2})", ErrorMessage = "Please Enter a Valid PPSN")]
         public string PPSN { get; set; }
 
-        //age attribute referenced to validate age
         [Required]
         [Display(Name = "Date of Birth")]
-        [Age(ErrorMessage = "child must be between the ages of 3 and 5 when starting")]
         [DataType(DataType.Date)]
         public DateTime DOB { get; set; }
 
@@ -55,9 +53,10 @@ namespace Assignment.Models
 
         public bool Friday { get; set; }
 
-        //futuredate attribute referenced to ensure date is in the future
+        //futuredate attribute referenced to ensure date is in the future, age attribute referenced to validate age
         [Required]
-        [FutureDate(ErrorMessage = "You must choose a date in the future")]
+        [FutureDate]
+        [Age]
         [Display(Name = "Start Date")]
         [DataType(DataType.Date)]
         public DateTime StartDate { get; set; }
