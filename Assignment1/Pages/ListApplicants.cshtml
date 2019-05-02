@@ -29,7 +29,7 @@
                 <td>@applicant.PFirstName @applicant.PLastName</td>
 
                 @*button to redirect to singular applicant's full details using ID*@
-                <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID">View</a> </td>
+                <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID"><button>View</button></a> </td>
             </tr>
         }
             </tbody>
