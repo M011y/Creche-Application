@@ -29,6 +29,8 @@
                 <th>Email Address</th>
                 <th>Alternative Email Address</th>
                 <th>Cost</th>
+                <th>Edit Application</th>
+                <th>Delete Application</th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +50,8 @@
         <td>@Model.applicant.Email1</td>
         <td>@Model.applicant.Email2</td>
         <td>@Model.applicant.Cost</td>
+        <td><a asp-page="EditApplicant" asp-route-id="@applicant.ID">View</a></td>
+        @*<td><a>Delete</a></td>*@
         </tbody>
     </table>
 </div>

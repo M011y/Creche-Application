@@ -1,0 +1,198 @@
+﻿@page "{ID}"
+@model Assignment.Pages.EditModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit Application</h2>
+
+@*form for parent's/guardians to apply, with validation controls*@
+<form method="post" class="form-horizontal">
+
+    @*ask for child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
+        starting date*@
+
+    <span>Please fill in updated details</span>
+
+    <div class="form-group">
+        <label asp-for=applicant.CFirstName class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            applicant.CFirstName
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.CLastName class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.CLastName class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.CLastName></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.PPSN class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.PPSN class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.PPSN></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.DOB class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.DOB class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.DOB></span>
+    </div>
+
+    @*radio buttons for gender*@
+    <div class="form-group">
+        <span class="col-sm-2 control-label">Child's Gender </span>
+        <div class="col-sm-3">
+            <label for="Male">
+                <input value="Male" id="Male" type="Radio" asp-for="Applicant.Gender" />
+                Male
+            </label>
+            <label for="Female">
+                <input value="Female" id="Female" type="Radio" asp-for="Applicant.Gender" />
+                Female
+            </label>
+            <label for="Other">
+                <input value="Other" id="Other" type="Radio" asp-for="Applicant.Gender" />
+                Other
+            </label>
+        </div>
+        <span asp-validation-for=Applicant.Gender></span>
+    </div>
+
+    @*radio buttons for hours*@
+    <div class="form-group">
+        <span class="col-sm-2 control-label">Full or Part-Time </span>
+        <div class="col-sm-3">
+            <label for="Full-Time">
+                <input value="Full-Time" id="Full-Time" type="Radio" asp-for="Applicant.Hours" />
+                Full-Time
+            </label>
+            <label for="Part-Time">
+                <input value="Part-Time" id="Part-Time" type="Radio" asp-for="Applicant.Hours" />
+                Part-Time
+            </label>
+        </div>
+        <span asp-validation-for=Applicant.Hours></span>
+    </div>
+
+    @*checkbox for each day*@
+    <fieldset class="form-group">
+        <span class="col-sm-2 control-label">Days attending </span>
+        <div class="col-sm-5">
+            <input asp-for=Applicant.Monday>
+            <label asp-for=Applicant.Monday></label>
+            <input asp-for=Applicant.Tuesday>
+            <label asp-for=Applicant.Tuesday></label>
+            <input asp-for=Applicant.Wednesday>
+            <label asp-for=Applicant.Wednesday></label>
+            <input asp-for=Applicant.Thursday>
+            <label asp-for=Applicant.Thursday></label>
+            <input asp-for=Applicant.Friday>
+            <label asp-for=Applicant.Friday></label>
+        </div>
+    </fieldset>
+
+    <div class="form-group">
+        <label asp-for=Applicant.StartDate class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.StartDate class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.StartDate></span>
+    </div>
+
+    @*ask for parent properties First Name, Surname, relationship to child, address, Irish mobile num,
+        //second contact num, other contact num, e-mail address, 2nd e-mail address*@
+
+    <h3>Please fill in your own details</h3>
+
+    <div class="form-group">
+        <label asp-for=Applicant.PFirstName class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.PFirstName class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.PFirstName></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.PLastName class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.PLastName class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.PLastName></span>
+    </div>
+
+    @*radio buttons for relationship*@
+    <div class="form-group">
+        <span class="col-sm-2 control-label">Relationship to Child </span>
+        <div class="col-sm-3">
+            <label for="Father">
+                <input value="Father" id="Father" type="Radio" asp-for="Applicant.Relationship" />
+                Father
+            </label>
+            <label for="Mother">
+                <input value="Mother" id="Mother" type="Radio" asp-for="Applicant.Relationship" />
+                Mother
+            </label>
+            <label for="Other">
+                <input value="Other" id="Other" type="Radio" asp-for="Applicant.Relationship" />
+                Other
+            </label>
+        </div>
+        <span asp-validation-for=Applicant.Relationship></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.Address class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.Address class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.Address></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.Mobile class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.Mobile class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.Mobile></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.Phone1 class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.Phone1 class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.Phone1></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.Phone2 class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.Phone2 class="form-control">
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.Email1 class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.Email1 class="form-control">
+        </div>
+        <span asp-validation-for=Applicant.Email1></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=Applicant.Email2 class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=Applicant.Email2 class="form-control">
+        </div>
+    </div>
+
+    <button type="submit">Submit</button>
+</form>

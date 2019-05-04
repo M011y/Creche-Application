@@ -16,31 +16,22 @@
     <tbody>
         @if (String.IsNullOrEmpty(Model.SearchBy))
         {
-            @foreach (var applicant in Model.Applicants)
-            {
-                <tr>
-                    <td>@applicant.ID</td>
-                    <td>@applicant.CFirstName @applicant.CLastName</td>
-                    <td>@applicant.PFirstName @applicant.PLastName</td>
-
-                    <td><a asp-page="Details" asp-route-ID="@applicant.ID" class="btn btn-info"> Open Details </a></td>
-                </tr>
-
-            }
-
+            <tr>
+                <td>No applicant with that last name</td>
+            </tr>
         }
         else
         {
-            @foreach (var applicant in Model.Applicants)
+            @foreach (var Applicant in Model.Applicants)
             {
-                @if (applicant.CLastName == Model.SearchBy)
+                @if (Applicant.CLastName == Model.SearchBy)
                 {
                     <tr>
-                        <td>@applicant.ID</td>
-                        <td>@applicant.CFirstName @applicant.CLastName</td>
-                        <td>@applicant.PFirstName @applicant.PLastName</td>
+                        <td>@Applicant.ID</td>
+                        <td>@Applicant.CFirstName @Applicant.CLastName</td>
+                        <td>@Applicant.PFirstName @Applicant.PLastName</td>
 
-                        <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID"><button>View</button></a> </td>
+                        <td><a asp-page="ViewApplicant" asp-route-id="@Applicant.ID">View</a></td>
                     </tr>
                 }
 
