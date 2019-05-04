@@ -106,5 +106,41 @@ namespace Assignment.Models
         [DataType(DataType.EmailAddress)]
         [RegularExpression(@"^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$", ErrorMessage = "Email Address Not Valid")]
         public string Email2 { get; set; }
+
+        //cost
+        public decimal Cost { get { return GetCost(); } }
+
+        //Get Cost method
+        private decimal GetCost()
+        {
+            decimal cost;
+
+            var numOfDays = 0;
+            if (Monday) { numOfDays++; }
+            if (Tuesday) { numOfDays++; }
+            if (Wednesday) { numOfDays++; }
+            if (Thursday) { numOfDays++; }
+            if (Friday) { numOfDays++; }
+
+            //calculations for full-time
+            if (Hours is "Full-Time")
+            {
+                cost = numOfDays * 35;
+                if (numOfDays > 3)
+                {
+                    cost = cost * (decimal)0.9;
+                }
+            }
+            //calculations for part-time
+            else
+            {
+                cost = numOfDays * 20;
+                if (numOfDays > 3)
+                {
+                    cost = cost * (decimal)0.9;
+                }
+            }
+            return cost;
+        }
     }
 }

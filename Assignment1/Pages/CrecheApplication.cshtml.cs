@@ -28,18 +28,18 @@ namespace Assignment.Pages
 
         //if all validation is passed, including atleast one day checked, redirect to thank-you page, otherwise return this page
         public async Task<IActionResult> OnPostAsync()
-        { 
+        {
             if (ModelState.IsValid && CheckIfADayTicked(Applicant))
             {
                 _db.Applicants.Add(Applicant);
                 await _db.SaveChangesAsync();
-                return RedirectToPage("ThankYou");
+                return RedirectToPage("ThankYou", new { id = Applicant.ID });
             }
 
             else
             {
                 return Page();
-            } 
+            }
         }
 
         //method to check if atleast one day is chosen

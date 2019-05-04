@@ -1,4 +1,4 @@
-﻿@page
+﻿@page "{ID}"
 @model Assignment.Pages.ThankYouModel
 @{
     ViewData["Title"] = "ThankYou";
@@ -8,4 +8,4 @@
 
 <h1>Thank-you for your application</h1>
 
-<div>The cost per week will be @Model.Message</div>
+<div>The cost per week will be €@Model.applicant.Cost</div>
