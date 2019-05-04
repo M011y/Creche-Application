@@ -1,5 +1,6 @@
 ﻿@page "{ID}"
 @model Assignment.Pages.ViewApplicantModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "ViewApplicant";
 }
@@ -50,7 +51,7 @@
         <td>@Model.applicant.Email1</td>
         <td>@Model.applicant.Email2</td>
         <td>@Model.applicant.Cost</td>
-        <td><a asp-page="EditApplicant" asp-route-id="@applicant.ID">View</a></td>
+        <td><a asp-page="Edit" asp-route-id="@Model.applicant.ID">Edit</a></td>
         @*<td><a>Delete</a></td>*@
         </tbody>
     </table>

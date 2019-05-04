@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace Assignment.Pages
 {
@@ -15,6 +16,7 @@ namespace Assignment.Pages
 
         public EditModel(CrecheContext db)
         {
+            applicant = new Applicant();
             _db = db;
         }
 
@@ -32,6 +34,37 @@ namespace Assignment.Pages
                 return NotFound();
             }
             return Page();
+        }
+
+        //if all validation is passed, including atleast one day checked, redirect to thank-you page, otherwise return this page
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (ModelState.IsValid && CheckIfADayTicked(applicant))
+            {
+                _db.Applicants.Add(applicant);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("ThankYou", new { id = applicant.ID });
+            }
+
+            else
+            {
+                return Page();
+            }
+        }
+
+        //method to check if atleast one day is chosen
+        public bool CheckIfADayTicked(Applicant applicant)
+        {
+            if (applicant.Monday || applicant.Tuesday || applicant.Wednesday
+                 || applicant.Thursday || applicant.Friday)
+            {
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
         }
     }
 }
