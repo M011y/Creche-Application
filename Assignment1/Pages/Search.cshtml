@@ -1,0 +1,53 @@
+﻿@page
+@model Assignment.Pages.SearchModel
+@{
+    ViewData["Title"] = "Search";
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Application Number</th>
+            <th>Child's Name</th>
+            <th>Parent/Guardian's Name</th>
+            <th>View Full Application</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (String.IsNullOrEmpty(Model.SearchBy))
+        {
+            @foreach (var applicant in Model.Applicants)
+            {
+                <tr>
+                    <td>@applicant.ID</td>
+                    <td>@applicant.CFirstName @applicant.CLastName</td>
+                    <td>@applicant.PFirstName @applicant.PLastName</td>
+
+                    <td><a asp-page="Details" asp-route-ID="@applicant.ID" class="btn btn-info"> Open Details </a></td>
+                </tr>
+
+            }
+
+        }
+        else
+        {
+            @foreach (var applicant in Model.Applicants)
+            {
+                @if (applicant.CLastName == Model.SearchBy)
+                {
+                    <tr>
+                        <td>@applicant.ID</td>
+                        <td>@applicant.CFirstName @applicant.CLastName</td>
+                        <td>@applicant.PFirstName @applicant.PLastName</td>
+
+                        <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID"><button>View</button></a> </td>
+                    </tr>
+                }
+
+            }
+
+        }
+
+    </tbody>
+</table>
+

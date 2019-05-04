@@ -1,5 +1,5 @@
 ﻿@page
-@model Assignment.Pages.Applicants.ListApplicantsModel
+@model Assignment.Pages.ListApplicantsModel
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @{
     ViewData["Title"] = "ListApplicants";
@@ -8,6 +8,16 @@
 <head>
     <title>Applications</title>
 </head>
+
+<form method="post">
+    <div>
+        Search by Last Name
+        <label asp-for=SearchName>
+            <input asp-for=SearchName />
+        </label>
+        <button id="submit" type="submit" class="btn btn-primary">Search</button>
+    </div>
+</form>
 
 @*table with basic details of all applicants*@
 <form method="post" class="container">
@@ -29,7 +39,7 @@
                 <td>@applicant.PFirstName @applicant.PLastName</td>
 
                 @*button to redirect to singular applicant's full details using ID*@
-                <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID"><button>View</button></a> </td>
+                <td><a asp-page="ViewApplicant" asp-route-id="@applicant.ID">View</a></td>
             </tr>
         }
             </tbody>

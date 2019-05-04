@@ -9,22 +9,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Assignment.Pages
 {
-    public class ListApplicantsModel : PageModel
+    public class SearchModel : PageModel
     {
         //brings in database
         private readonly CrecheContext _db;
 
-        public ListApplicantsModel(CrecheContext db)
+        public SearchModel(CrecheContext db)
         {
             _db = db;
         }
 
         //brings in applicants
         public IList<Applicant> Applicants { get; private set; }
-
-        [BindProperty]
-
-        public string SearchName { get; set; }
 
         [TempData]
         public string SearchBy { get; set; }
@@ -35,10 +31,9 @@ namespace Assignment.Pages
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
         }
 
-        public async Task<IActionResult> OnPostAsync()
-        {
-            SearchBy = SearchName;
-            return RedirectToPage("/Search");
-        }
+        //public void OnGet()
+        //{
+
+        //}
     }
 }
