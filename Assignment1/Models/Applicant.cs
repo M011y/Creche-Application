@@ -108,12 +108,13 @@ namespace Assignment.Models
         public string Email2 { get; set; }
 
         //cost
-        public decimal Cost { get { return GetCost(); } }
+        public string Cost { get { return GetCost(); } }
 
         //Get Cost method
-        private decimal GetCost()
+        private string GetCost()
         {
-            decimal cost;
+            string cost;
+            decimal amount;
 
             var numOfDays = 0;
             if (Monday) { numOfDays++; }
@@ -125,21 +126,24 @@ namespace Assignment.Models
             //calculations for full-time
             if (Hours is "Full-Time")
             {
-                cost = numOfDays * 35;
+                amount = numOfDays * 35;
                 if (numOfDays > 3)
                 {
-                    cost = cost * (decimal)0.9;
+                    amount = amount * (decimal)0.9;
                 }
             }
             //calculations for part-time
             else
             {
-                cost = numOfDays * 20;
+                amount = numOfDays * 20;
                 if (numOfDays > 3)
                 {
-                    cost = cost * (decimal)0.9;
+                    amount = amount * (decimal)0.9;
                 }
             }
+
+            cost = ($"€{amount}");
+
             return cost;
         }
     }
