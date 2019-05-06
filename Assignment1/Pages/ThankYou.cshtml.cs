@@ -34,44 +34,5 @@ namespace Assignment.Pages
             }
             return Page();
         }
-
-        //Calculations: €20 part time p/d, €35 full time p/d
-        //Discount 10% if 4 or more days
-        //public async Task OnGetAsync()
-        //{
-        //    Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
-
-        //    ////checks how many days ticked
-        //    //foreach (var applicant in Applicants)
-        //    //{
-        //    //    var numOfDays = 0;
-        //    //    if (applicant.Monday) { numOfDays++; }
-        //    //    if (applicant.Tuesday) { numOfDays++; }
-        //    //    if (applicant.Wednesday) { numOfDays++; }
-        //    //    if (applicant.Thursday) { numOfDays++; }
-        //    //    if (applicant.Friday) { numOfDays++; }
-
-        //    //    //calculations for full-time
-        //    //    if (applicant.Hours is "Full-Time")
-        //    //    {
-        //    //        decimal cost = numOfDays * 35;
-        //    //        if(numOfDays > 3)
-        //    //        {
-        //    //            cost = cost * (decimal)0.9;
-        //    //        }
-        //    //        Message = $"{cost:C}";
-        //    //    }
-        //    //    //calculations for part-time
-        //    //    else
-        //    //    {
-        //    //        decimal cost = numOfDays * 20;
-        //    //        if (numOfDays > 3)
-        //    //        {
-        //    //            cost = cost * (decimal)0.9;
-        //    //        }
-        //    //        Message = $"{cost:C}";
-        //    //    }
-        //    }
-
     }
 }

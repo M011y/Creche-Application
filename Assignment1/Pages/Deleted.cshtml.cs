@@ -5,16 +5,15 @@ using System.Threading.Tasks;
 using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 
 namespace Assignment.Pages
 {
-    public class ViewApplicantModel : PageModel
+    public class DeletedModel : PageModel
     {
         //brings in database
         private readonly CrecheContext _db;
 
-        public ViewApplicantModel(CrecheContext db)
+        public DeletedModel(CrecheContext db)
         {
             _db = db;
         }
@@ -33,14 +32,6 @@ namespace Assignment.Pages
                 return NotFound();
             }
             return Page();
-        }
-
-        //deleting applicant from database
-        public async Task<IActionResult> OnPostAsync()
-        {
-                _db.Applicants.Remove(applicant);
-                await _db.SaveChangesAsync();
-                return RedirectToPage("Deleted", new { id = applicant.ID });
         }
     }
 }
