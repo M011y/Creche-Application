@@ -15,15 +15,18 @@ namespace Assignment.Pages
 
         public void OnGet()
         {
+            var cookie = Request.Cookies["CrecheCookie"];
+
             CookieOptions options = new CookieOptions();
 
             options.Expires = DateTime.Now.AddYears(1);
 
             Response.Cookies.Append("CrecheCookie", Value = Convert.ToString(DateTime.Now), options);
 
-            if (Request.Cookies["CrecheCookie"] != null)
+            if (cookie != null)
             {
-                Message = $"{Value}";
+                Message = $"{cookie}";
+
             }
             else
             {
