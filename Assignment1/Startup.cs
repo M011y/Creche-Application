@@ -49,8 +49,6 @@ namespace Assignment
             }
 
             app.UseStaticFiles();
-            app.UseCookiePolicy();
-
             app.UseMvc();
         }
     }
