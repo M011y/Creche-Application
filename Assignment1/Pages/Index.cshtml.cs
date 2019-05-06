@@ -11,18 +11,19 @@ namespace Assignment.Pages
     public class IndexModel : PageModel
     {
         public string Message { get; set; }
+        public string Value { get; private set; }
 
         public void OnGet()
         {
             CookieOptions options = new CookieOptions();
 
-            options.Expires = DateTime.Now.AddDays(365);
+            options.Expires = DateTime.Now.AddYears(1);
 
-            Response.Cookies.Append("CrecheCookie", "Visit", options);
+            Response.Cookies.Append("CrecheCookie", Value = Convert.ToString(DateTime.Now), options);
 
             if (Request.Cookies["CrecheCookie"] != null)
             {
-                Message = "Welcome back";
+                Message = $"{Value}";
             }
             else
             {
