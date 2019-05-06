@@ -28,7 +28,6 @@ namespace Assignment.Pages
         public IActionResult OnGet(int id)
         {
             applicant = _db.Applicants.Find(id);
-
             if (applicant == null)
             {
                 return NotFound();
