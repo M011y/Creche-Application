@@ -10,37 +10,61 @@
 @*form for parent's/guardians to apply, with validation controls*@
 <form method="post" class="form-horizontal">
 
-    @*ask for updated child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
+    @*ask for child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         starting date*@
 
-    <span>Please fill in your child's updated details</span>
+    <span>Please fill in your up to date childs details</span>
 
     <div class="form-group">
         <label asp-for=applicant.CFirstName class="col-sm-2 control-label"></label>
         <div class="col-sm-3">
-            @Model.applicant.CFirstName
+            <input asp-for=applicant.CFirstName class="form-control">
         </div>
+        <span asp-validation-for=applicant.CFirstName></span>
     </div>
 
     <div class="form-group">
         <label asp-for=applicant.CLastName class="col-sm-2 control-label"></label>
         <div class="col-sm-3">
-            @Model.applicant.CLastName
+            <input asp-for=applicant.CLastName class="form-control">
         </div>
+        <span asp-validation-for=applicant.CLastName></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=applicant.PPSN class="col-sm-2 control-label"></label>
+        <div class="col-sm-3">
+            <input asp-for=applicant.PPSN class="form-control">
+        </div>
+        <span asp-validation-for=applicant.PPSN></span>
     </div>
 
     <div class="form-group">
         <label asp-for=applicant.DOB class="col-sm-2 control-label"></label>
         <div class="col-sm-3">
-            @Model.applicant.DOB
+            <input asp-for=applicant.DOB class="form-control">
         </div>
+        <span asp-validation-for=applicant.DOB></span>
     </div>
 
+    @*radio buttons for gender*@
     <div class="form-group">
-        <label asp-for=applicant.Gender class="col-sm-2 control-label"></label>
+        <span class="col-sm-2 control-label">Child's Gender </span>
         <div class="col-sm-3">
-            @Model.applicant.Gender
+            <label for="Male">
+                <input value="Male" id="Male" type="Radio" asp-for="applicant.Gender" />
+                Male
+            </label>
+            <label for="Female">
+                <input value="Female" id="Female" type="Radio" asp-for="applicant.Gender" />
+                Female
+            </label>
+            <label for="Other">
+                <input value="Other" id="Other" type="Radio" asp-for="applicant.Gender" />
+                Other
+            </label>
         </div>
+        <span asp-validation-for=applicant.Gender></span>
     </div>
 
     @*radio buttons for hours*@
@@ -84,31 +108,45 @@
         <span asp-validation-for=applicant.StartDate></span>
     </div>
 
-    @*ask for updated parent properties First Name, Surname, relationship to child, address, Irish mobile num,
+    @*ask for parent properties First Name, Surname, relationship to child, address, Irish mobile num,
         //second contact num, other contact num, e-mail address, 2nd e-mail address*@
 
-    <h3>Please fill in your own updated details</h3>
-
+    <h3>Please fill in your own up to date details</h3>
 
     <div class="form-group">
         <label asp-for=applicant.PFirstName class="col-sm-2 control-label"></label>
         <div class="col-sm-3">
-            @Model.applicant.PFirstName
+            <input asp-for=applicant.PFirstName class="form-control">
         </div>
+        <span asp-validation-for=applicant.PFirstName></span>
     </div>
 
     <div class="form-group">
         <label asp-for=applicant.PLastName class="col-sm-2 control-label"></label>
         <div class="col-sm-3">
-            @Model.applicant.PLastName
+            <input asp-for=applicant.PLastName class="form-control">
         </div>
+        <span asp-validation-for=applicant.PLastName></span>
     </div>
 
+    @*radio buttons for relationship*@
     <div class="form-group">
-        <label asp-for=applicant.Relationship class="col-sm-2 control-label"></label>
+        <span class="col-sm-2 control-label">Relationship to Child </span>
         <div class="col-sm-3">
-            @Model.applicant.Relationship
+            <label for="Father">
+                <input value="Father" id="Father" type="Radio" asp-for="applicant.Relationship" />
+                Father
+            </label>
+            <label for="Mother">
+                <input value="Mother" id="Mother" type="Radio" asp-for="applicant.Relationship" />
+                Mother
+            </label>
+            <label for="Other">
+                <input value="Other" id="Other" type="Radio" asp-for="applicant.Relationship" />
+                Other
+            </label>
         </div>
+        <span asp-validation-for=applicant.Relationship></span>
     </div>
 
     <div class="form-group">
@@ -157,5 +195,5 @@
         </div>
     </div>
 
-    <button type="submit">Submit</button>*
+    <button type="submit">Update</button>
 </form>

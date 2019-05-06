@@ -16,7 +16,7 @@ namespace Assignment.Pages
 
         public EditModel(CrecheContext db)
         {
-            applicant = new Applicant();
+            //applicant = new Applicant();
             _db = db;
         }
 
@@ -37,34 +37,34 @@ namespace Assignment.Pages
         }
 
         //if all validation is passed, including atleast one day checked, redirect to thank-you page, otherwise return this page
-        //public async Task<IActionResult> OnPostAsync()
-        //{
-        //    if (ModelState.IsValid && CheckIfADayTicked(applicant))
-        //    {
-        //        _db.Applicants.Add(applicant);
-        //        await _db.SaveChangesAsync();
-        //        return RedirectToPage("ThankYou", new { id = applicant.ID });
-        //    }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            if (ModelState.IsValid && CheckIfADayTicked(applicant))
+            {
+                _db.Applicants.Update(applicant);
+                await _db.SaveChangesAsync();
+                return RedirectToPage("ThankYou", new { id = applicant.ID });
+            }
 
-        //    else
-        //    {
-        //        return Page();
-        //    }
-        //}
+            else
+            {
+                return Page();
+            }
+        }
 
         //method to check if atleast one day is chosen
-        //public bool CheckIfADayTicked(Applicant applicant)
-        //{
-        //    if (applicant.Monday || applicant.Tuesday || applicant.Wednesday
-        //         || applicant.Thursday || applicant.Friday)
-        //    {
-        //        return true;
-        //    }
+        public bool CheckIfADayTicked(Applicant applicant)
+        {
+            if (applicant.Monday || applicant.Tuesday || applicant.Wednesday
+                 || applicant.Thursday || applicant.Friday)
+            {
+                return true;
+            }
 
-        //    else
-        //    {
-        //        return false;
-        //    }
-        //}
+            else
+            {
+                return false;
+            }
+        }
     }
 }
