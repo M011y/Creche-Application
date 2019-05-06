@@ -1,0 +1,32 @@
+﻿@page "{ID}"
+@model Assignment.Pages.DeleteApplicantModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "DeleteApplicant";
+}
+
+<h2>Delete Applicant</h2>
+
+@*table with basic details of all applicants*@
+<form method="post" class="container">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Application Number</th>
+                <th>Child's Name</th>
+                <th>Parent/Guardian's Name</th>
+                <th>View Full Application</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>@Model.applicant.ID</td>
+                <td>@Model.applicant.CFirstName @Model.applicant.CLastName</td>
+                <td>@Model.applicant.PFirstName @Model.applicant.PLastName</td>
+
+                @*button to delete applicant*@
+                <td><button type="submit">Confirm Deletion</button></td>
+            </tr>
+        </tbody>
+    </table>
+</form>
