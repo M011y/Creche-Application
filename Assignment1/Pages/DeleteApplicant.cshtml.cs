@@ -35,6 +35,7 @@ namespace Assignment.Pages
             return Page();
         }
 
+        //removes applicant from database when confirm delete button is pressed
         public async Task<IActionResult> OnPostAsync()
         {
                 _db.Applicants.Remove(applicant);

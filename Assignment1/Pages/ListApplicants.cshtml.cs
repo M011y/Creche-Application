@@ -22,10 +22,11 @@ namespace Assignment.Pages
         //brings in applicants
         public IList<Applicant> Applicants { get; private set; }
 
+        //search name property
         [BindProperty]
-
         public string SearchName { get; set; }
 
+        //temp data search by
         [TempData]
         public string SearchBy { get; set; }
 
@@ -35,6 +36,7 @@ namespace Assignment.Pages
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
         }
 
+        //redirect to search page when search button is pressed.
         public async Task<IActionResult> OnPostAsync()
         {
             SearchBy = SearchName;

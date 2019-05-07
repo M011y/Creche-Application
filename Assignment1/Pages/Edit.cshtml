@@ -7,18 +7,19 @@
 
 <h2>Edit Application</h2>
 
-@*form for parent's/guardians to apply, with validation controls*@
+@*form for parent's/guardians to update application, with validation controls*@
 <form method="post" class="form-horizontal">
 
-    @*ask for child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
+    @*ask for updateted child properties first name, last name, PPS num, DOB, gender, hours requested, days requested,
         starting date*@
 
     <span>Please fill in your up to date childs details</span>
 
-    <div hidden class="form-group">
-        <label asp-for=applicant.ID class="col-sm-2 control-label"></label>
-        <div class="col-sm-3">
-            <input asp-for=applicant.ID class="form-control">
+    @*Hidden ID property - carries ID through update*@
+    <div hidden>
+        <label asp-for=applicant.ID></label>
+        <div>
+            <input asp-for=applicant.ID>
         </div>
     </div>
 
@@ -115,7 +116,7 @@
         <span asp-validation-for=applicant.StartDate></span>
     </div>
 
-    @*ask for parent properties First Name, Surname, relationship to child, address, Irish mobile num,
+    @*ask for updated parent properties First Name, Surname, relationship to child, address, Irish mobile num,
         //second contact num, other contact num, e-mail address, 2nd e-mail address*@
 
     <h3>Please fill in your own up to date details</h3>
@@ -202,5 +203,6 @@
         </div>
     </div>
 
+    @*update button*@
     <button type="submit">Update</button>
 </form>

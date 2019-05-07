@@ -52,7 +52,9 @@
             <td>@Model.applicant.Email1</td>
             <td>@Model.applicant.Email2</td>
             <td>@Model.applicant.Cost</td>
+            @*edit button*@
             <td><a asp-page="Edit" asp-route-id="@Model.applicant.ID">Edit</a></td>
+            @*delete button*@
             <td><a asp-page="DeleteApplicant" asp-route-id="@Model.applicant.ID">Delete</a></td>
             </tbody>
         </table>

@@ -34,13 +34,5 @@ namespace Assignment.Pages
             }
             return Page();
         }
-
-        //deleting applicant from database
-        //public async Task<IActionResult> OnPostAsync()
-        //{
-        //        _db.Applicants.Remove(applicant);
-        //        await _db.SaveChangesAsync();
-        //        return RedirectToPage("Deleted", new { id = applicant.ID });
-        //}
     }
 }
