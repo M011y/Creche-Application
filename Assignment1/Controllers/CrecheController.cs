@@ -18,22 +18,16 @@ namespace Assignment.Controllers
         public CrecheController(CrecheContext context)
         {
             _context = context;
-
-            if (_context.Applicants.Count() == 0)
-            {
-                _context.Applicants.Add(new Models.Applicant { CFirstName = "Item1" });
-                _context.SaveChanges();
-            }
         }
 
-        // GET: api/Todo
+        // GET: api/Todo viewing applicants in database
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Applicant>>> GetApplicants()
         {
             return await _context.Applicants.ToListAsync();
         }
 
-        // GET: api/Todo/5
+        // GET: api/Todo/5 getting a particular applicant from database
         [HttpGet("{id}")]
         public async Task<ActionResult<Applicant>> GetApplicant(int ID)
         {
@@ -47,7 +41,7 @@ namespace Assignment.Controllers
             return applicant;
         }
 
-        // POST: api/Todo
+        // POST: api/Todo adding applicant to database
         [HttpPost]
         public async Task<ActionResult<Applicant>> PostApplicant(Applicant item)
         {
@@ -57,7 +51,7 @@ namespace Assignment.Controllers
             return CreatedAtAction(nameof(GetApplicant), new { id = item.ID }, item);
         }
 
-        // PUT: api/Todo/5
+        // PUT: api/Todo/5 modifies existing record
         [HttpPut("{id}")]
         public async Task<IActionResult> PutApplicant(int id, Applicant item)
         {
@@ -73,7 +67,7 @@ namespace Assignment.Controllers
         }
 
 
-        // DELETE: api/Todo/5
+        // DELETE: api/Todo/5 deleting an applicant from database
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteApplicant(long ID)
         {
