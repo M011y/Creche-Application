@@ -16,6 +16,7 @@ namespace Assignment.Pages
         //message property
         public string Message { get; set; }
 
+        //joke property
         public string Joke { get; set; }
 
         //value of cookie
@@ -35,6 +36,7 @@ namespace Assignment.Pages
 
         public IList<Applicant> Applicants { get; private set; }
 
+        //count property
         public int Count { get; set; }
 
         public async Task<IActionResult> OnGetAsync()
@@ -74,6 +76,7 @@ namespace Assignment.Pages
 
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
 
+            //counting how many applicants are in the database
             Count = _db.Applicants.Count();
 
             return Page();

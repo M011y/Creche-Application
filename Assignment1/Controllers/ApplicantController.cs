@@ -18,7 +18,7 @@ namespace Assignment.Controllers
             _context = context;
         }
 
-        // GET data/applicant
+        // GET data/applicant - getting a particular applicant from database using ID
         [HttpGet("{id}")]
         public async Task<ActionResult<Applicant>> GetApplicant(int ID)
         {

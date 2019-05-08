@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using Assignment.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -30,10 +28,5 @@ namespace Assignment.Pages
         {
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
         }
-
-        //public void OnGet()
-        //{
-
-        //}
     }
 }
