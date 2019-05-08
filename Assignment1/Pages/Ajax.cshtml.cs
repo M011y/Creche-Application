@@ -16,7 +16,6 @@ namespace Assignment.Pages
 
         public AjaxModel(CrecheContext db)
         {
-            //applicant = new Applicant();
             _db = db;
         }
 
@@ -26,9 +25,13 @@ namespace Assignment.Pages
 
         public IList<Applicant> Applicants { get; private set; }
 
+        public int Count { get; set; }
+
         public async Task<IActionResult> OnGetAsync()
         {
             Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
+
+            Count = _db.Applicants.Count();
 
             return Page();
         }

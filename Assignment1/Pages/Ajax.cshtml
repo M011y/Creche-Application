@@ -3,20 +3,29 @@
 @{
 }
 
-<select ID="applicantdropdown" name="applicantID">
+<select ID="applicantdropdown">
     @foreach (var applicant in Model.Applicants)
     {
         <option> @applicant.ID</option>
     }
 </select>
 
-<table>
-    <tr>
-        <td id="firstname"></td>
-        <td id="lastname"></td>
-    </tr>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Child's First Name</th>
+            <th>Child's Surname</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td id="cfirstname"></td>
+            <td id="clastname"></td>
+        </tr>
+    </tbody>
 </table>
 
+<div>Total Creche Applications: @Model.Count</div>
 
 @section Scripts
 {
