@@ -9,54 +9,102 @@
     <title>View Applicant</title>
 </head>
 
-@*table with full details of an applicant*@
+@*full details of an applicant*@
 <form>
-    <div class="container">
-        <table class="table table-bordered">
-            <thead>
-                <tr>
-                    <th>Application Number</th>
-                    <th>Child's Name</th>
-                    <th>Child's PPSN</th>
-                    <th>Child's Date of Birth</th>
-                    <th>Child's Gender</th>
-                    <th>Full or Part-Time</th>
-                    <th>Start Date</th>
-                    <th>Parent/Guardian's Name</th>
-                    <th>Relationship to Child</th>
-                    <th>Address</th>
-                    <th>Mobile Phone Number</th>
-                    <th>House Phone Number</th>
-                    <th>Other Phone Number</th>
-                    <th>Email Address</th>
-                    <th>Alternative Email Address</th>
-                    <th>Cost</th>
-                    <th>Edit Application</th>
-                    <th>Delete Application</th>
-                </tr>
-            </thead>
-            <tbody>
-            <td>@Model.applicant.ID</td>
-            <td>@Model.applicant.CFirstName @Model.applicant.CLastName</td>
-            <td>@Model.applicant.PPSN</td>
-            <td>@Model.applicant.DOB</td>
-            <td>@Model.applicant.Gender</td>
-            <td>@Model.applicant.Hours</td>
-            <td>@Model.applicant.StartDate</td>
-            <td>@Model.applicant.PFirstName @Model.applicant.PLastName</td>
-            <td>@Model.applicant.Relationship</td>
-            <td>@Model.applicant.Address</td>
-            <td>@Model.applicant.Mobile</td>
-            <td>@Model.applicant.Phone1</td>
-            <td>@Model.applicant.Phone2</td>
-            <td>@Model.applicant.Email1</td>
-            <td>@Model.applicant.Email2</td>
-            <td>@Model.applicant.Cost</td>
+
+    <h3>Applicant's full details</h3>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.ID></label>
+        <div>@Model.applicant.ID</div>
+    </div>
+
+    <div class="form-group">
+        <label>Child's Name:</label>
+        <div>@Model.applicant.CFirstName @Model.applicant.CLastName</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.PPSN></label>
+        <div>@Model.applicant.PPSN</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.DOB></label>
+        <div>@Model.applicant.DOB</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Gender></label>
+        <div>@Model.applicant.Gender</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Hours></label>
+        <div>@Model.applicant.Hours</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.StartDate></label>
+        <div>@Model.applicant.StartDate</div>
+    </div>
+
+    <div class="form-group">
+        <label>Parent/Guardian's Name:</label>
+        <div>@Model.applicant.PFirstName @Model.applicant.PLastName</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Relationship></label>
+        <div>@Model.applicant.Relationship</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Address></label>
+        <div>@Model.applicant.Address</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Mobile></label>
+        <div>@Model.applicant.Mobile</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Phone1></label>
+        <div>@Model.applicant.Phone1</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Phone2></label>
+        <div>@Model.applicant.Phone2</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Email1></label>
+        <div>@Model.applicant.Email1</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Email2></label>
+        <div>@Model.applicant.Email2</div>
+    </div>
+
+    <div class="form-group">
+        <label asp-for=@Model.applicant.Cost></label>
+        <div>@Model.applicant.Cost</div>
+    </div>
+
+    <div class="form-group">
+        <div>
             @*edit button*@
-            <td><a asp-page="Edit" asp-route-id="@Model.applicant.ID">Edit</a></td>
+            <a asp-page="Edit" asp-route-id="@Model.applicant.ID">Edit Application</a>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div>
             @*delete button*@
-            <td><a asp-page="DeleteApplicant" asp-route-id="@Model.applicant.ID">Delete</a></td>
-            </tbody>
-        </table>
+            <a asp-page="DeleteApplicant" asp-route-id="@Model.applicant.ID">Delete Application</a>
+        </div>
     </div>
 </form>
