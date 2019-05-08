@@ -6,9 +6,8 @@
             alert("Something went wrong!");
         },
         success: function (data) {
-            $('#Cfirstname').html(data.CFirstName);
-            $('#Clastname').html(data.CLastName);
-
+            $('#firstname').html(data.cFirstName);
+            $('#lastname').html(data.cLastName);
         }
 
     });

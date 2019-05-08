@@ -11,20 +11,18 @@ namespace Assignment.Controllers
     [ApiController]
     public class ApplicantController : ControllerBase
     {
-        private readonly CrecheContext _db;
+        private readonly CrecheContext _context;
 
-        public ApplicantController(CrecheContext db)
+        public ApplicantController(CrecheContext context)
         {
-            _db = db;
+            _context = context;
         }
 
-
-
-        // GET api/values/5
+        // GET data/applicant
         [HttpGet("{id}")]
         public async Task<ActionResult<Applicant>> GetApplicant(int ID)
         {
-            var applicant = await _db.Applicants.FindAsync(ID);
+            var applicant = await _context.Applicants.FindAsync(ID);
 
             if (applicant == null)
             {
