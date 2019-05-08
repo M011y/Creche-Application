@@ -18,3 +18,30 @@
 <div>
     Your new joke is: @Model.Joke
 </div>
+
+<div>
+    <h3>Current Applications:</h3>
+    <select ID="applicantdropdown">
+        @foreach (var applicant in Model.Applicants)
+        {
+            <option> @applicant.ID</option>
+        }
+    </select>
+
+    <table>
+        <tbody>
+            <tr>
+                <td id="cfirstname"></td>
+                <td>&nbsp;</td>
+                <td id="clastname"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div>Total Creche Applications: @Model.Count</div>
+
+    @section Scripts
+{
+        <script src="~/site.js"></script>
+    }
+</div>

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Assignment.Models;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace Assignment.Pages
 {
@@ -17,7 +21,23 @@ namespace Assignment.Pages
         //value of cookie
         public string Value { get; private set; }
 
-        public async Task OnGetAsync()
+        //brings in database
+        private readonly CrecheContext _db;
+
+        public IndexModel(CrecheContext db)
+        {
+            _db = db;
+        }
+
+        //brings in applicant
+        [BindProperty]
+        public Applicant applicant { get; set; }
+
+        public IList<Applicant> Applicants { get; private set; }
+
+        public int Count { get; set; }
+
+        public async Task<IActionResult> OnGetAsync()
         {
             //adding external api
             HttpClient client = new HttpClient();
@@ -51,6 +71,12 @@ namespace Assignment.Pages
             {
                 Message = "First visit";
             }
+
+            Applicants = await _db.Applicants.AsNoTracking().ToListAsync();
+
+            Count = _db.Applicants.Count();
+
+            return Page();
         }
     }
 }
