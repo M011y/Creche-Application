@@ -1,0 +1,26 @@
+﻿@page
+@model Assignment.Pages.AjaxModel
+@{
+    ViewData["Title"] = "Ajax";
+}
+
+<select ID="applicantdropdown" name="applicantID">
+    @foreach (var applicant in Model.Applicants)
+    {
+        <option> @applicant.ID</option>
+    }
+</select>
+
+<table>
+    <tr>
+        <td ID="Cfirstname"></td>
+        <td ID="Clastname"></td>
+    </tr>
+</table>
+
+
+@section Scripts
+{
+    <script src="~/site.js"></script>
+}
+
